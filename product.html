@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product — Yaldah Issa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+  <div class="brandmark">YALDAH ISSA</div>
+  <nav class="topnav">
+    <a class="navpill" href="index.html">Home</a>
+    <a class="navpill" href="shop.html">Shop</a>
+    <a class="navpill" href="about.html">About</a>
+    <a class="navpill" href="contact.html">Contact</a>
+    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+  </nav>
+</header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 id="pName">Product</h2>
+        <div class="note"><a class="navpill" href="shop.html">← Back to shop</a></div>
+      </div>
+
+      <div class="panel" style="padding:18px; margin-top:16px">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px">
+          <div class="panel" style="overflow:hidden">
+            <img id="pImg" alt="" style="width:100%;height:380px;object-fit:cover;display:block" />
+          </div>
+
+          <div>
+            <div class="stamp"><span class="dot"></span> <span id="pCollection"></span></div>
+            <h3 style="font-size:34px" id="pName2"></h3>
+            <p style="margin-top:10px" id="pDesc"></p>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+              <div style="font-family:'Cormorant Garamond',serif; font-size:28px" id="pPrice">$0.00</div>
+              <div class="badge" id="pColor">Color</div>
+              <div class="badge" id="pFabric">Fabric</div>
+            </div>
+
+            <div style="margin-top:14px" class="control">
+              <label for="size">Size</label>
+              <select id="size"></select>
+            </div>
+
+            <div style="margin-top:14px" class="control">
+              <label for="qty">Qty</label>
+              <select id="qty">
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              </select>
+            </div>
+
+            <div class="btnrow" style="margin-top:14px">
+              <button class="btn primary" id="add">Add to cart</button>
+              <a class="btn" href="cart.html">Go to cart →</a>
+            </div>
+
+            <div class="notice" style="margin-top:10px" id="invNote"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
+  <div>
+    <a href="policies/shipping.html">Shipping</a> •
+    <a href="policies/returns.html">Returns</a> •
+    <a href="policies/privacy.html">Privacy</a> •
+    <a href="policies/terms.html">Terms</a>
+    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+  </div>
+</footer>
+  </div>
+
+  <script type="module">
+    import { PRODUCTS } from "./assets/products.js";
+    import { addToCart } from "./assets/cart.js";
+    import { setYear, setCartCount, money, qs } from "./assets/app.js";
+
+    setYear(); setCartCount();
+
+    const id = qs("id");
+    const p = PRODUCTS.find(x => x.id === id);
+
+    const pName = document.getElementById("pName");
+    const pName2 = document.getElementById("pName2");
+    const pCollection = document.getElementById("pCollection");
+    const pDesc = document.getElementById("pDesc");
+    const pPrice = document.getElementById("pPrice");
+    const pImg = document.getElementById("pImg");
+    const size = document.getElementById("size");
+    const qty = document.getElementById("qty");
+    const invNote = document.getElementById("invNote");
+
+    if(!p){
+      pName.textContent = "Product not found";
+      document.querySelector(".panel").innerHTML = "<p>Sorry, this product link is invalid.</p>";
+    } else {
+      document.title = p.name + " — Yaldah Issa";
+      pName.textContent = p.name;
+      pName2.textContent = p.name;
+      pCollection.textContent = p.collection;
+      pDesc.textContent = p.description;
+      pPrice.textContent = money(p.price_cents);
+      pImg.src = p.images[0];
+      pImg.alt = p.name;
+
+      document.getElementById("pColor").textContent = p.color;
+      document.getElementById("pFabric").textContent = p.fabric;
+
+      size.innerHTML = p.sizes.map(s => `<option>${s}</option>`).join("");
+      invNote.textContent = p.inventory ? `Limited stock: ${p.inventory} available (preview inventory).` : "Limited stock.";
+    }
+
+    document.getElementById("add").addEventListener("click", () => {
+      if(!p) return;
+      const q = Number(qty.value || 1);
+      addToCart(p.id + "::" + size.value, q);
+      setCartCount();
+      const btn = document.getElementById("add");
+      btn.textContent = "Added ✓";
+      setTimeout(()=> btn.textContent = "Add to cart", 900);
+    });
+  </script>
+</body>
+</html>

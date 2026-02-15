@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Yaldah Issa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+  <div class="brandmark">YALDAH ISSA</div>
+  <nav class="topnav">
+    <a class="navpill" href="index.html">Home</a>
+    <a class="navpill" href="shop.html">Shop</a>
+    <a class="navpill" href="about.html">About</a>
+    <a class="navpill" href="contact.html">Contact</a>
+    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+  </nav>
+</header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>About Yaldah Issa</h2>
+        <div class="note">Excellence With Purpose</div>
+      </div>
+
+      <div class="panel" style="padding:18px; margin-top:16px">
+        <h3 style="font-size:30px">The Brand</h3>
+        <p style="margin-top:10px">
+          Yaldah Issa is a women’s luxury clothing brand created for professional women, entrepreneurs, and women who value elegance.
+          Our design language is minimal and high-end — quiet confidence, refined structure, and premium finishing.
+        </p>
+
+        <h3 style="font-size:30px; margin-top:18px">The Mission</h3>
+        <p style="margin-top:10px">
+          We help women elevate their presence through intentional style. Every collection is designed to support confidence, clarity, and purpose.
+        </p>
+
+        <h3 style="font-size:30px; margin-top:18px">Founder Vision</h3>
+        <p style="margin-top:10px">
+          Founded by <b>Valencia Tshamanye</b> in Dallas. The vision is to build a premium ecosystem where women step into their “CEO era” — with grace,
+          excellence, and identity-led style.
+        </p>
+
+        <div class="btnrow" style="margin-top:14px">
+          <a class="btn primary" href="index.html#inner-circle">Join the Inner Circle →</a>
+          <a class="btn" href="shop.html">Shop preview</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
+  <div>
+    <a href="policies/shipping.html">Shipping</a> •
+    <a href="policies/returns.html">Returns</a> •
+    <a href="policies/privacy.html">Privacy</a> •
+    <a href="policies/terms.html">Terms</a>
+    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+  </div>
+</footer>
+  </div>
+
+  <script type="module">
+    import { setYear, setCartCount } from "./assets/app.js";
+    setYear(); setCartCount();
+  </script>
+</body>
+</html>

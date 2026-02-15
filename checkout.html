@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Yaldah Issa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+  <div class="brandmark">YALDAH ISSA</div>
+  <nav class="topnav">
+    <a class="navpill" href="index.html">Home</a>
+    <a class="navpill" href="shop.html">Shop</a>
+    <a class="navpill" href="about.html">About</a>
+    <a class="navpill" href="contact.html">Contact</a>
+    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+  </nav>
+</header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Checkout</h2>
+        <div class="note">Secure checkout • Visa • Klarna • Sezzle</div>
+      </div>
+
+      <div class="panel" style="padding:18px; margin-top:16px">
+        <p>
+          This is the checkout screen. To make payments live, we’ll connect a payment provider and add a Cloudflare Worker endpoint.
+        </p>
+
+        <div class="badges">
+          <div class="badge">Visa</div>
+          <div class="badge">Mastercard</div>
+          <div class="badge">Klarna</div>
+          <div class="badge">Sezzle</div>
+          <div class="badge">SSL</div>
+        </div>
+
+        <div class="panel" style="padding:16px; margin-top:16px">
+          <h3 style="font-size:26px">Make checkout live</h3>
+          <p style="margin-top:8px">
+            Click below to start secure checkout. It will work after you add <code>/api/checkout</code> (Cloudflare Worker).
+          </p>
+
+          <div class="btnrow" style="margin-top:14px">
+            <button class="btn primary" id="liveCheckout" type="button">Start secure checkout →</button>
+            <a class="btn" href="cart.html">Back to cart</a>
+          </div>
+
+          <div class="error" id="err"></div>
+          <div class="notice" style="margin-top:10px">
+            Klarna is typically enabled through Stripe. Sezzle is added separately. We’ll wire both once your payment accounts are ready.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
+  <div>
+    <a href="policies/shipping.html">Shipping</a> •
+    <a href="policies/returns.html">Returns</a> •
+    <a href="policies/privacy.html">Privacy</a> •
+    <a href="policies/terms.html">Terms</a>
+    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+  </div>
+</footer>
+  </div>
+
+  <script type="module">
+    import { getCart } from "./assets/cart.js";
+    import { setYear, setCartCount } from "./assets/app.js";
+
+    setYear(); setCartCount();
+    const err = document.getElementById("err");
+
+    document.getElementById("liveCheckout").addEventListener("click", async () => {
+      err.textContent = "";
+      const cart = getCart();
+      const items = Object.entries(cart).map(([key, qty]) => {
+        const [id, size] = key.split("::");
+        return { id, qty, size: size || null };
+      });
+
+      if(items.length === 0) {
+        err.textContent = "Your cart is empty.";
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items })
+        });
+        const data = await res.json();
+        if(!res.ok) throw new Error(data?.error || "Checkout is not connected yet.");
+        window.location.href = data.url;
+      } catch(e) {
+        err.textContent = e.message;
+      }
+    });
+  </script>
+</body>
+</html>
