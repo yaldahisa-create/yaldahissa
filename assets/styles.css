@@ -217,5 +217,46 @@ body{
   .hero-title{font-size:44px;}
   .topnav{display:none;}
 }
+/* ============================
+   GRADIENT VISIBILITY FIX
+   Paste at VERY BOTTOM
+   ============================ */
+
+/* Card background was washing out the gradients */
+.card{
+  background: rgba(255,255,255,0.28) !important;
+  border-color: rgba(0,0,0,0.10) !important;
+}
+
+/* Boost the gradient tile without changing your site colors */
+.card-media{
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  filter: contrast(1.15) saturate(1.22) !important;
+}
+
+/* Richer neutral gradients (same style, stronger) */
+.media-suits{
+  background-image:
+    radial-gradient(circle at 28% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(120deg, rgba(0,0,0,0.22), rgba(255,255,255,0)),
+    linear-gradient(135deg, #A88466 0%, #F4E4D6 100%) !important;
+}
+
+.media-dresses{
+  background-image:
+    radial-gradient(circle at 72% 26%, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(120deg, rgba(0,0,0,0.20), rgba(255,255,255,0)),
+    linear-gradient(135deg, #B58E79 0%, #F6E6DC 100%) !important;
+}
+
+.media-sets{
+  background-image:
+    radial-gradient(circle at 40% 62%, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0) 57%),
+    linear-gradient(120deg, rgba(0,0,0,0.22), rgba(255,255,255,0)),
+    linear-gradient(135deg, #9D775A 0%, #F2E1D3 100%) !important;
+}
+
 
 
