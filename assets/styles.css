@@ -58,18 +58,25 @@ body{
   /* keep crisp; blur on solid dark can look cloudy */
   backdrop-filter:none;
 }
-
-.brandmark{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.brandmark{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
 
 .brand-logo{
-  width:42px;height:42px;border-radius:999px;object-fit:cover;
-  border:1px solid rgba(242,225,174,.75);
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  object-fit:cover;
+
+  border:1px solid rgba(242,225,174,.55);
   box-shadow:
-    inset 0 2px 4px rgba(255,255,255,.55),
-    inset 0 -4px 8px rgba(0,0,0,.35),
-    0 6px 18px rgba(0,0,0,.28),
-    0 0 0 3px rgba(214,178,94,.18);
+    0 4px 10px rgba(0,0,0,.18),
+    0 0 0 2px rgba(214,178,94,.12);
 }
+
 
 .brand-name{
   font-family:var(--font-display);
