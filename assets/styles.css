@@ -217,136 +217,53 @@ body{
   .hero-title{font-size:44px;}
   .topnav{display:none;}
 }
-/* ============================
-   GRADIENT VISIBILITY FIX
-   Paste at VERY BOTTOM
-   ============================ */
 
-/* Card background was washing out the gradients */
-.card{
-  background: rgba(255,255,255,0.28) !important;
-  border-color: rgba(0,0,0,0.10) !important;
-}
-
-/* Boost the gradient tile without changing your site colors */
-.card-media{
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center !important;
-  filter: contrast(1.15) saturate(1.22) !important;
-}
-
-/* Richer neutral gradients (same style, stronger) */
-.media-suits{
-  background-image:
-    radial-gradient(circle at 28% 20%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0) 55%),
-    linear-gradient(120deg, rgba(0,0,0,0.22), rgba(255,255,255,0)),
-    linear-gradient(135deg, #A88466 0%, #F4E4D6 100%) !important;
-}
-
-.media-dresses{
-  background-image:
-    radial-gradient(circle at 72% 26%, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0) 55%),
-    linear-gradient(120deg, rgba(0,0,0,0.20), rgba(255,255,255,0)),
-    linear-gradient(135deg, #B58E79 0%, #F6E6DC 100%) !important;
-}
-
-.media-sets{
-  background-image:
-    radial-gradient(circle at 40% 62%, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0) 57%),
-    linear-gradient(120deg, rgba(0,0,0,0.22), rgba(255,255,255,0)),
-    linear-gradient(135deg, #9D775A 0%, #F2E1D3 100%) !important;
-}
 /* =========================
-   LUXURY BOTTOM SECTION FIX
+   LUXURY GOLD DIVIDER
    ========================= */
 
-/* JOIN LIST PANEL */
-#join .panel{
-  max-width:760px;
-  margin:40px auto 0 auto;
-  padding:38px 32px;
-  background:rgba(255,255,255,0.45);
-  backdrop-filter: blur(12px);
-  border-radius:22px;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow:0 25px 60px rgba(0,0,0,0.06);
-  text-align:center;
-}
-
-/* input layout */
-.subgrid{
-  grid-template-columns:1fr;
-  gap:14px;
-  margin-top:24px;
-}
-
-/* inputs style */
-.subgrid input{
-  height:52px;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,0.12);
-  background:rgba(255,255,255,0.85);
-  padding:0 16px;
-  font-size:14px;
-  transition:all .25s ease;
-}
-
-.subgrid input:focus{
-  outline:none;
-  border-color:#b79f86;
-  box-shadow:0 0 0 3px rgba(183,159,134,0.18);
-}
-
-/* join button */
-.subgrid .btn{
-  margin-top:6px;
-  height:52px;
-  font-size:12px;
-  letter-spacing:0.18em;
-}
-
-/* message text */
-#join .msg{
-  font-size:15px;
-  opacity:.85;
-}
-
-/* small privacy text */
-#join .fine{
-  margin-top:16px;
-  opacity:.6;
-}
-
-/* FOOTER IMPROVEMENT */
+/* creates spacing before footer */
 .footer{
-  text-align:center;
-  padding:60px 0 80px;
-  margin-top:80px;
-  border-top:1px solid rgba(0,0,0,0.05);
+  position:relative;
+  margin-top:120px;
 }
 
-.footer-links{
-  margin-top:14px;
-  line-height:2;
+/* gold line */
+.footer::before{
+  content:"";
+  position:absolute;
+  top:-60px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:1px;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0),
+    rgba(183,159,134,0.9),
+    rgba(0,0,0,0)
+  );
 }
 
-.footer a{
-  border-bottom:none;
-  opacity:.85;
+/* soft glow under the gold line */
+.footer::after{
+  content:"";
+  position:absolute;
+  top:-70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:260px;
+  height:60px;
+  background:radial-gradient(
+    ellipse at center,
+    rgba(183,159,134,0.18) 0%,
+    rgba(183,159,134,0.05) 40%,
+    rgba(0,0,0,0) 70%
+  );
+  pointer-events:none;
 }
 
-.footer a:hover{
-  opacity:1;
-}
-
-/* better mobile spacing */
-@media (max-width:768px){
-  #join .panel{
-    padding:28px 20px;
-    margin-top:24px;
-  }
-}
 
 
 
