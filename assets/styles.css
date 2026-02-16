@@ -123,7 +123,7 @@ body{
   padding: 0 10px;
 }
 
-/* ONLY title styling for hero */
+/* HERO title (clean) */
 .hero-title{
   font-family:"Cormorant Garamond", serif;
   font-weight:600;
@@ -166,14 +166,10 @@ body{
   color:#111;
   border-color: rgba(255,255,255,0.95);
 }
-.btn.primary:hover{
-  background:#fff;
-}
+.btn.primary:hover{ background:#fff; }
 
 /* ---------- SECTIONS ---------- */
-.section{
-  padding: 56px 0;
-}
+.section{ padding: 56px 0; }
 
 .section-head{
   display:flex;
@@ -219,7 +215,7 @@ body{
   background-position: center;
 }
 
-/* Spoiler-free neutral visuals (no real designs) */
+/* ✅ YOUR ORIGINAL “ON-POINT” LAYERED GRADIENTS */
 .media-suits{
   background-image:
     linear-gradient(120deg, rgba(0,0,0,0.10), rgba(255,255,255,0.00)),
@@ -239,9 +235,7 @@ body{
     linear-gradient(135deg, #c7b39a, #f5efe6);
 }
 
-.card-body{
-  padding: 18px 16px 20px;
-}
+.card-body{ padding: 18px 16px 20px; }
 
 .card-title{
   font-size:14px;
@@ -325,10 +319,10 @@ body{
 
 @media (max-width: 768px){
   .hero-title{ font-size:44px; }
-  .topnav{ display:none; } /* keeps header clean on mobile */
+  .topnav{ display:none; }
 }
 
-/* --------- SAFETY: hide any old hero elements if they exist --------- */
+/* Hide any old hero elements (if they still exist somewhere) */
 .hero .stamp,
 .hero .lede,
 .hero .badges,
