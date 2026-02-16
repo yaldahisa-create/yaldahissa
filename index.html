@@ -11,8 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Cache-bust so Cloudflare shows the latest CSS -->
-<link rel="stylesheet" href="assets/styles.css?v=12
- />
+  <link rel="stylesheet" href="assets/styles.css?v=13" />
 </head>
 
 <body>
@@ -30,6 +29,13 @@
         <a class="navpill" href="shop.html">Shop</a>
         <a class="navpill" href="about.html">About</a>
         <a class="navpill" href="contact.html">Contact</a>
+
+        <!-- SEARCH -->
+        <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
+          <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+          <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+        </form>
+
         <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
       </nav>
     </header>
@@ -135,11 +141,11 @@
       </div>
     </section>
 
-    <!-- JOIN LIST -->
+    <!-- JOIN LIST (EMAIL ONLY) -->
     <section class="section" id="join">
       <div class="section-head">
         <h2>Join the List</h2>
-        <div class="note">VIP email + phone</div>
+        <div class="note">VIP email</div>
       </div>
 
       <div class="panel subscribe" style="margin-top:16px">
@@ -148,9 +154,7 @@
         </p>
 
         <form class="subgrid" id="subscribeForm">
-          <input name="name" id="subName" placeholder="Full name" autocomplete="name" />
           <input name="email" id="subEmail" placeholder="Email address" type="email" required autocomplete="email" />
-          <input name="phone" id="subPhone" placeholder="Phone (optional)" type="tel" autocomplete="tel" />
           <button class="btn primary" type="submit">Join →</button>
         </form>
 
@@ -192,10 +196,9 @@
     if(form){
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
         const payload = {
-          name: document.getElementById("subName")?.value?.trim() || "",
-          email: document.getElementById("subEmail")?.value?.trim() || "",
-          phone: document.getElementById("subPhone")?.value?.trim() || ""
+          email: document.getElementById("subEmail")?.value?.trim() || ""
         };
 
         if(!payload.email){
@@ -232,6 +235,7 @@
   </script>
 </body>
 </html>
+
 
 
 
