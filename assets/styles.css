@@ -1,0 +1,40 @@
+/* ===== Luxury Subscribe Styling ===== */
+
+.subscribe {
+  background: linear-gradient(180deg, #faf7f2 0%, #f2ece3 100%);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+}
+
+.subscribe input {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.subscribe button {
+  background: linear-gradient(180deg, #c9a46a, #a8844f);
+  color: white;
+  border: none;
+  transition: all .25s ease;
+}
+
+.subscribe button:hover {
+  background: linear-gradient(180deg, #d7b378, #b69259);
+  transform: translateY(-1px);
+}
+
+.subscribe .ok {
+  color: #8a6a3c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+}
+
+.subscribe .bad {
+  color: #8c2b2b;
+  font-size: 14px;
+}
+
+.subscribe .msg {
+  color: rgba(0,0,0,0.55);
+  font-size: 14px;
+}
