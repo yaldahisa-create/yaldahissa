@@ -1,40 +1,131 @@
-/* ===== Luxury Subscribe Styling ===== */
+/* =========================
+   LUXURY UPGRADE PACK
+   ========================= */
 
-.subscribe {
-  background: linear-gradient(180deg, #faf7f2 0%, #f2ece3 100%);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 18px;
+:root{
+  --beige:#f7f2ea;
+  --cream:#fffaf2;
+  --gold:#b08a57;
+  --goldSoft:rgba(176,138,87,.18);
+  --black:#0f0f10;
+  --ink:#151515;
+  --muted:rgba(21,21,21,.62);
+  --line:rgba(15,15,16,.10);
+  --glass:rgba(255,255,255,.62);
+  --radius:22px;
+  --shadow:0 22px 60px rgba(0,0,0,.10);
+  --max:1180px;
 }
 
-.subscribe input {
-  font-family: "Inter", sans-serif;
-  letter-spacing: 0.04em;
+body{
+  background:
+    radial-gradient(900px 500px at 20% -10%, rgba(176,138,87,.22), transparent 55%),
+    radial-gradient(700px 400px at 90% 20%, rgba(0,0,0,.06), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, var(--beige) 52%, #efe6d9 100%);
+  color:var(--ink);
 }
 
-.subscribe button {
-  background: linear-gradient(180deg, #c9a46a, #a8844f);
-  color: white;
-  border: none;
+.container{max-width:var(--max); padding:26px;}
+
+header.site-header{padding:18px 0 14px;}
+.brandmark{
+  font-size:30px;
+  letter-spacing:.22em;
+  color:var(--black);
+}
+
+.navpill{
+  border:1px solid rgba(15,15,16,.10);
+  background:rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  color:rgba(21,21,21,.72);
   transition: all .25s ease;
 }
-
-.subscribe button:hover {
-  background: linear-gradient(180deg, #d7b378, #b69259);
+.navpill:hover{
+  background:rgba(176,138,87,.10);
+  border-color:rgba(176,138,87,.22);
   transform: translateY(-1px);
+  color:var(--ink);
 }
 
-.subscribe .ok {
-  color: #8a6a3c;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+.hero{
+  border:1px solid rgba(15,15,16,.10);
+  background:rgba(255,255,255,.55);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
-.subscribe .bad {
-  color: #8c2b2b;
-  font-size: 14px;
+.hero-text{padding:54px;}
+h1{letter-spacing:-.02em;}
+p{font-size:15.5px;}
+
+.btn{
+  border:1px solid rgba(15,15,16,.10);
+  background:rgba(255,255,255,.62);
+  backdrop-filter: blur(10px);
+  transition: all .25s ease;
+}
+.btn:hover{transform: translateY(-1px);}
+
+.btn.primary{
+  background: linear-gradient(180deg, rgba(176,138,87,.98), rgba(140,106,60,.98));
+  box-shadow: 0 14px 30px rgba(176,138,87,.18);
 }
 
-.subscribe .msg {
-  color: rgba(0,0,0,0.55);
-  font-size: 14px;
+.section-head{
+  border-bottom:1px solid rgba(15,15,16,.10);
+  padding:12px 2px 18px;
 }
+.section-head .note{color:rgba(21,21,21,.58);}
+
+.card{
+  background:rgba(255,255,255,.58);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(15,15,16,.10);
+  transition: all .28s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  border-color:rgba(176,138,87,.22);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+.card-media{
+  background:
+    radial-gradient(700px 280px at 15% 10%, rgba(176,138,87,.22), transparent 55%),
+    linear-gradient(135deg, rgba(0,0,0,.06), rgba(0,0,0,0)),
+    repeating-linear-gradient(45deg, rgba(176,138,87,.08) 0px, rgba(176,138,87,.08) 7px, rgba(255,255,255,0) 7px, rgba(255,255,255,0) 22px);
+}
+
+.panel{
+  background:rgba(255,255,255,.58);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(15,15,16,.10);
+}
+
+/* Footer more “brand” */
+.footer{
+  border-top:1px solid rgba(15,15,16,.10);
+  color:rgba(21,21,21,.58);
+}
+.footer a{color:rgba(176,138,87,.95)}
+
+/* VIP join bottom - luxury */
+.subscribe{
+  background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(247,242,234,.88));
+  border:1px solid rgba(15,15,16,.10);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(0,0,0,.06);
+}
+.subscribe input{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(15,15,16,.10);
+}
+.subscribe .msg{color:rgba(21,21,21,.58);}
+.subscribe .ok{
+  color:rgba(176,138,87,.98);
+  font-family:"Cormorant Garamond",serif;
+  letter-spacing:.06em;
+}
+.subscribe .bad{color:#8c2b2b;}
+
