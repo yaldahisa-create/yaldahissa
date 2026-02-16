@@ -14,7 +14,8 @@
   --gold-2:#C79A3B;
   --gold-3:#F2E1AE;
 
-  --brown-1:#3A2A1B;
+  /* ✅ Option 2 Chocolate Brown */
+  --brown-1:#4B2E21;
   --brown-2:#5B4230;
   --brown-3:#7A5A41;
 
@@ -139,7 +140,7 @@ body{
   text-transform:uppercase;
 
   background:linear-gradient(180deg,#fff3c9,#d6b25e);
-  color:var(--brown-1);
+  color:#2B1A12; /* ✅ crisp text on gold */
   transition:.2s ease;
 }
 .navsearch-btn:hover{ transform:translateY(-1px); filter:brightness(1.03); }
@@ -274,13 +275,67 @@ body{
   color:var(--brown-1);
 }
 
-/* ---------- JOIN PANEL (keeps it clean) ---------- */
+/* ---------- JOIN PANEL (EMAIL ONLY) ---------- */
 .panel{
   border-radius:18px;
   background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(239,230,214,.72));
   box-shadow:var(--shadow-2);
   border:1px solid rgba(214,178,94,.18);
   padding:18px;
+}
+
+/* ✅ Make Join List look premium + centered */
+.panel.subscribe{
+  max-width:720px;
+  margin:26px auto 0;
+  padding:34px 26px;
+  text-align:center;
+}
+
+/* ✅ If your HTML still has name/phone inputs, hide them automatically */
+#subscribeForm #subName,
+#subscribeForm #subPhone{
+  display:none !important;
+}
+
+/* ✅ Make email + button look clean */
+#subscribeForm{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+#subscribeForm input[type="email"],
+#subscribeForm #subEmail{
+  width:min(420px, 92vw);
+  height:46px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid rgba(214,178,94,.35);
+  background:rgba(255,255,255,.60);
+  outline:none;
+  font-size:14px;
+  color:var(--brown-2);
+}
+
+#subscribeForm input[type="email"]::placeholder,
+#subscribeForm #subEmail::placeholder{
+  color:rgba(91,66,48,.70);
+}
+
+#subscribeForm input[type="email"]:focus,
+#subscribeForm #subEmail:focus{
+  background:rgba(255,255,255,.78);
+  border-color:rgba(214,178,94,.55);
+  box-shadow:0 0 0 3px rgba(214,178,94,.14);
+}
+
+#subscribeForm button{
+  height:46px;
+  padding:0 18px;
 }
 
 /* ---------- FOOTER ---------- */
@@ -333,8 +388,12 @@ body{
 @media(max-width:768px){
   .hero-title{font-size:44px;}
   .topnav{display:none;} /* keeps header clean on mobile */
-}
 
+  /* join list stack nicely */
+  #subscribeForm{ flex-direction:column; }
+  #subscribeForm input[type="email"], #subscribeForm #subEmail{ width:100%; }
+  #subscribeForm button{ width:100%; }
+}
 
 
 
