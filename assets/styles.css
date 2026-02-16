@@ -1,3 +1,6 @@
+```css
+/* assets/styles.css */
+
 /* ---------- RESET ---------- */
 *{ box-sizing:border-box; margin:0; padding:0; }
 html, body{ height:100%; }
@@ -123,7 +126,7 @@ body{
   padding: 0 10px;
 }
 
-/* HERO title (clean) */
+/* Clean hero title (used if you set class="hero-title") */
 .hero-title{
   font-family:"Cormorant Garamond", serif;
   font-weight:600;
@@ -131,6 +134,17 @@ body{
   line-height:0.95;
   letter-spacing:0.02em;
   margin-bottom:26px;
+  text-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* If your hero still uses h1 without hero-title */
+.hero-on-video h1{
+  font-family:"Cormorant Garamond", serif;
+  font-weight:600;
+  font-size:64px;
+  line-height:0.95;
+  letter-spacing:0.02em;
+  margin-bottom:16px;
   text-shadow: 0 12px 40px rgba(0,0,0,0.45);
 }
 
@@ -166,10 +180,14 @@ body{
   color:#111;
   border-color: rgba(255,255,255,0.95);
 }
-.btn.primary:hover{ background:#fff; }
+.btn.primary:hover{
+  background:#fff;
+}
 
 /* ---------- SECTIONS ---------- */
-.section{ padding: 56px 0; }
+.section{
+  padding: 56px 0;
+}
 
 .section-head{
   display:flex;
@@ -205,37 +223,41 @@ body{
   border:1px solid rgba(0,0,0,0.08);
   border-radius:16px;
   overflow:hidden;
-  background: rgba(255,255,255,0.55);
+  /* less “milky” so gradients pop */
+  background: rgba(255,255,255,0.40);
   box-shadow: 0 18px 40px rgba(0,0,0,0.06);
 }
 
 .card-media{
   height: 220px;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-/* ✅ YOUR ORIGINAL “ON-POINT” LAYERED GRADIENTS */
+/* STRONGER gradients (same warm luxury vibe, more visible) */
 .media-suits{
   background-image:
-    linear-gradient(120deg, rgba(0,0,0,0.10), rgba(255,255,255,0.00)),
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.65), rgba(255,255,255,0.0) 55%),
-    linear-gradient(135deg, #cbbba6, #f4eee6);
+    radial-gradient(circle at 28% 20%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.0) 56%),
+    linear-gradient(120deg, rgba(0,0,0,0.16), rgba(255,255,255,0.00)),
+    linear-gradient(135deg, #b79f86, #f3e6d8);
 }
 .media-dresses{
   background-image:
-    linear-gradient(120deg, rgba(0,0,0,0.08), rgba(255,255,255,0.00)),
-    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.60), rgba(255,255,255,0.0) 55%),
-    linear-gradient(135deg, #d9c9b6, #f6f0e8);
+    radial-gradient(circle at 72% 26%, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.0) 56%),
+    linear-gradient(120deg, rgba(0,0,0,0.14), rgba(255,255,255,0.00)),
+    linear-gradient(135deg, #c6a38e, #f6e8de);
 }
 .media-sets{
   background-image:
-    linear-gradient(120deg, rgba(0,0,0,0.10), rgba(255,255,255,0.00)),
-    radial-gradient(circle at 40% 60%, rgba(255,255,255,0.60), rgba(255,255,255,0.0) 55%),
-    linear-gradient(135deg, #c7b39a, #f5efe6);
+    radial-gradient(circle at 40% 62%, rgba(255,255,255,0.74) 0%, rgba(255,255,255,0.0) 58%),
+    linear-gradient(120deg, rgba(0,0,0,0.16), rgba(255,255,255,0.00)),
+    linear-gradient(135deg, #b39275, #f2e3d6);
 }
 
-.card-body{ padding: 18px 16px 20px; }
+.card-body{
+  padding: 18px 16px 20px;
+}
 
 .card-title{
   font-size:14px;
@@ -294,6 +316,44 @@ body{
   font-size: 13px;
   opacity: 0.85;
 }
+
+.footer-links{
+  margin-top:10px;
+  font-size:12px;
+  opacity:0.85;
+}
+
+.footer a{
+  color: inherit;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,0.15);
+}
+.footer a:hover{
+  border-bottom-color: rgba(0,0,0,0.35);
+}
+.sep{ margin: 0 10px; opacity:0.6; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 980px){
+  .grid{ grid-template-columns: 1fr; }
+  .subgrid{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px){
+  .hero-title{ font-size:44px; }
+  .hero-on-video h1{ font-size:44px; }
+  .topnav{ display:none; } /* keeps header clean on mobile */
+}
+
+/* ---------- SAFETY: hide old hero elements if they exist ---------- */
+.hero .stamp,
+.hero .lede,
+.hero .badges,
+.hero .micro{
+  display:none !important;
+}
+```
+
 
 .footer-links{
   margin-top:10px;
