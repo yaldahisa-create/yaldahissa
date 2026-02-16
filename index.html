@@ -1,78 +1,234 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Yaldah Issa — Excellence With Purpose</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yaldah Issa — Excellence With Purpose</title>
+  <meta name="description" content="Yaldah Issa — Women’s luxury clothing for professional women and entrepreneurs. Minimal. Refined. Purpose-led." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/styles.css">
+  <!-- Cache-bust so Cloudflare shows the latest CSS -->
+  <link rel="stylesheet" href="assets/styles.css?v=7" />
 </head>
 
 <body>
 
-<header class="site-header">
-  <a class="brand-name" href="#">YALDAH ISSA</a>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#collections">Collections</a>
-    <a href="#join">Join</a>
-  </nav>
-</header>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+        <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+        <span class="brand-name">YALDAH ISSA</span>
+      </a>
 
-<!-- HERO -->
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="assets/teaser.mp4" type="video/mp4">
-  </video>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a class="navpill" href="index.html">Home</a>
+        <a class="navpill" href="shop.html">Shop</a>
+        <a class="navpill" href="about.html">About</a>
+        <a class="navpill" href="contact.html">Contact</a>
+        <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+    </header>
+  </div><!-- /container -->
 
-  <div class="hero-overlay"></div>
+  <!-- HERO (FULLSCREEN VIDEO) -->
+  <section class="hero hero-full" aria-label="Hero">
+    <div class="hero-media hero-full-media" aria-label="Brand teaser video">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/teaser.mp4" type="video/mp4" />
+      </video>
 
-  <div class="hero-content">
-    <h1>Excellence With Purpose</h1>
-    <div class="hero-buttons">
-      <a class="btn primary" href="#">Shop Preview</a>
-      <a class="btn ghost" href="#collections">Explore Collections</a>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- ONLY 3 ITEMS ON VIDEO -->
+      <div class="hero-text hero-on-video">
+        <h1 class="hero-title">Excellence<br/>With Purpose</h1>
+
+        <div class="btnrow">
+          <a class="btn primary" href="shop.html">Shop Preview</a>
+          <a class="btn" href="#collections">Explore Collections</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- COLLECTIONS -->
-<section class="section reveal" id="collections">
-<h2 class="section-title">Collections</h2>
+  <div class="container">
 
-<div class="grid">
-  <div class="card"><div class="placeholder suits"></div><h3>Power Suits</h3></div>
-  <div class="card"><div class="placeholder dresses"></div><h3>Signature Dresses</h3></div>
-  <div class="card"><div class="placeholder sets"></div><h3>Rich Aunty Sets</h3></div>
-</div>
-</section>
+    <!-- COLLECTIONS -->
+    <section class="section" id="collections">
+      <div class="section-head">
+        <h2>Collections</h2>
+        <div class="note">Preview only • no designs shown</div>
+      </div>
 
-<!-- JOIN -->
-<section class="section reveal" id="join">
-<h2 class="section-title">Join the List</h2>
-<p class="center">Private releases & early access</p>
-<input class="input" placeholder="Email address">
-<button class="btn primary">Join →</button>
-</section>
+      <div class="grid">
+        <article class="card">
+          <div class="card-media media-suits"></div>
+          <div class="card-body">
+            <h3 class="card-title">Power Suits</h3>
+            <p>Tailored confidence. CEO energy. Elevated finishing.</p>
+            <div class="btnrow" style="margin-top:14px">
+              <a class="btn primary" href="shop.html?collection=Power%20Suits">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
+            </div>
+          </div>
+        </article>
 
-<footer class="footer reveal">
-© Yaldah Issa — Excellence With Purpose
-</footer>
+        <article class="card">
+          <div class="card-media media-dresses"></div>
+          <div class="card-body">
+            <h3 class="card-title">Signature Dresses</h3>
+            <p>Timeless elegance. Structured softness. Statement presence.</p>
+            <div class="btnrow" style="margin-top:14px">
+              <a class="btn primary" href="shop.html?collection=Signature%20Dresses">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
+            </div>
+          </div>
+        </article>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-const els=document.querySelectorAll(".reveal");
-const obs=new IntersectionObserver(e=>{
-e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("show")})
-},{threshold:.15});
-els.forEach(el=>obs.observe(el));
-});
-</script>
+        <article class="card">
+          <div class="card-media media-sets"></div>
+          <div class="card-body">
+            <h3 class="card-title">Rich Aunty Sets</h3>
+            <p>Soft luxury. Quiet power. “She has arrived.”</p>
+            <div class="btnrow" style="margin-top:14px">
+              <a class="btn primary" href="shop.html?collection=Rich%20Aunty%20Sets">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <!-- EDITORIAL -->
+    <section class="section">
+      <div class="section-head">
+        <h2>The Standard</h2>
+        <div class="note">Minimal • refined • intentional</div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Tailoring</h3>
+            <p>Clean structure, premium finishing, and a silhouette that holds power.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Fabric</h3>
+            <p>Luxury materials chosen for polish, comfort, and longevity.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Purpose</h3>
+            <p>Excellence with purpose — style that aligns with your calling.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- JOIN LIST -->
+    <section class="section" id="join">
+      <div class="section-head">
+        <h2>Join the List</h2>
+        <div class="note">VIP email + phone</div>
+      </div>
+
+      <div class="panel subscribe" style="margin-top:16px">
+        <p class="msg">
+          Be first to access private drops, early access, and exclusive offers — keeping the suspense.
+        </p>
+
+        <form class="subgrid" id="subscribeForm">
+          <input name="name" id="subName" placeholder="Full name" autocomplete="name" />
+          <input name="email" id="subEmail" placeholder="Email address" type="email" required autocomplete="email" />
+          <input name="phone" id="subPhone" placeholder="Phone (optional)" type="tel" autocomplete="tel" />
+          <button class="btn primary" type="submit">Join →</button>
+        </form>
+
+        <div class="fine">We respect your privacy. Unsubscribe anytime.</div>
+        <div id="subStatus" class="msg" style="margin-top:10px"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
+      <div class="footer-links">
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span class="sep">|</span>
+        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
+
+  </div><!-- /container -->
+
+  <script type="module">
+    import { setYear, setCartCount } from "./assets/app.js";
+    setYear(); setCartCount();
+  </script>
+
+  <script type="module">
+    const SUBSCRIBE_ENDPOINT = "";
+    const form = document.getElementById("subscribeForm");
+    const status = document.getElementById("subStatus");
+
+    function setStatus(text, cls){
+      status.className = cls || "msg";
+      status.textContent = text;
+    }
+
+    if(form){
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById("subName")?.value?.trim() || "",
+          email: document.getElementById("subEmail")?.value?.trim() || "",
+          phone: document.getElementById("subPhone")?.value?.trim() || ""
+        };
+
+        if(!payload.email){
+          setStatus("Please enter your email.", "bad");
+          return;
+        }
+
+        if(!SUBSCRIBE_ENDPOINT){
+          setStatus("You’re on the list ✔️", "ok");
+          try{
+            const existing = JSON.parse(localStorage.getItem("yi_vip_local") || "[]");
+            existing.push({ ...payload, at: new Date().toISOString() });
+            localStorage.setItem("yi_vip_local", JSON.stringify(existing));
+          }catch{}
+          form.reset();
+          return;
+        }
+
+        try{
+          setStatus("Submitting…", "msg");
+          const res = await fetch(SUBSCRIBE_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type":"application/json", "Accept":"application/json" },
+            body: JSON.stringify(payload)
+          });
+          if(!res.ok) throw new Error("Could not submit. Please try again.");
+          setStatus("Welcome to Yaldah Issa ✔️", "ok");
+          form.reset();
+        } catch(err){
+          setStatus(err.message || "Something went wrong.", "bad");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
 
