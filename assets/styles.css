@@ -1,6 +1,8 @@
 /* ==================================================
-   YALDAH ISSA — FINAL LUXURY STYLE
+   YALDAH ISSA — FINAL LUXURY STYLE (ADJUSTED)
    Cream • Gold • Warm Brown
+   Header: Solid Brown + Search
+   Collections: Cleaner Luxury Gradients
    ================================================== */
 
 :root{
@@ -30,7 +32,7 @@ body{
   font-family:var(--font-body);
   color:var(--brown-2);
   background:
-  radial-gradient(1200px 600px at 50% -120px,#fff7e7 0%,var(--cream-1) 55%,var(--cream-2) 100%);
+    radial-gradient(1200px 600px at 50% -120px,#fff7e7 0%,var(--cream-1) 55%,var(--cream-2) 100%);
 }
 
 .container{
@@ -38,7 +40,7 @@ body{
   margin:0 auto;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- HEADER (SOLID BROWN) ---------- */
 .site-header{
   position:sticky;
   top:0;
@@ -47,9 +49,13 @@ body{
   align-items:center;
   justify-content:space-between;
   padding:14px 0;
-  background:linear-gradient(180deg,rgba(58,42,27,.90),rgba(58,42,27,.72));
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(214,178,94,.25);
+
+  /* ONE solid brown */
+  background: var(--brown-1);
+  border-bottom:1px solid rgba(214,178,94,.22);
+
+  /* keep crisp; blur on solid dark can look cloudy */
+  backdrop-filter:none;
 }
 
 .brandmark{display:flex;align-items:center;gap:14px;text-decoration:none;}
@@ -58,10 +64,10 @@ body{
   width:42px;height:42px;border-radius:999px;object-fit:cover;
   border:1px solid rgba(242,225,174,.75);
   box-shadow:
-  inset 0 2px 4px rgba(255,255,255,.55),
-  inset 0 -4px 8px rgba(0,0,0,.35),
-  0 6px 18px rgba(0,0,0,.28),
-  0 0 0 3px rgba(214,178,94,.18);
+    inset 0 2px 4px rgba(255,255,255,.55),
+    inset 0 -4px 8px rgba(0,0,0,.35),
+    0 6px 18px rgba(0,0,0,.28),
+    0 0 0 3px rgba(214,178,94,.18);
 }
 
 .brand-name{
@@ -75,8 +81,9 @@ body{
   -webkit-text-fill-color:transparent;
 }
 
-.topnav{display:flex;gap:10px;}
+.topnav{display:flex;gap:10px;align-items:center;}
 
+/* nav pills on dark header */
 .navpill{
   text-decoration:none;
   color:rgba(242,225,174,.92);
@@ -90,6 +97,52 @@ body{
   transition:.2s ease;
 }
 .navpill:hover{background:rgba(214,178,94,.16);}
+
+/* ---------- HEADER SEARCH (ADD HTML FORM IN NAV) ---------- */
+.navsearch{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left:6px;
+}
+
+.navsearch-input{
+  width:160px;
+  height:36px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(214,178,94,.35);
+  background:rgba(255,255,255,.06);
+  color:rgba(242,225,174,.95);
+  outline:none;
+  font-size:12px;
+  letter-spacing:.02em;
+}
+.navsearch-input::placeholder{
+  color:rgba(242,225,174,.68);
+}
+.navsearch-input:focus{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(214,178,94,.55);
+  box-shadow:0 0 0 3px rgba(214,178,94,.12);
+}
+
+.navsearch-btn{
+  height:36px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(214,178,94,.45);
+  cursor:pointer;
+
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  background:linear-gradient(180deg,#fff3c9,#d6b25e);
+  color:var(--brown-1);
+  transition:.2s ease;
+}
+.navsearch-btn:hover{ transform:translateY(-1px); filter:brightness(1.03); }
 
 /* ---------- HERO VIDEO ---------- */
 .hero-full-media{
@@ -111,6 +164,8 @@ body{
   top:50%;left:50%;
   transform:translate(-50%,-50%);
   text-align:center;color:#fff;
+  width:min(900px,92vw);
+  padding:0 10px;
 }
 
 .hero-title{
@@ -121,7 +176,7 @@ body{
   text-shadow:0 14px 55px rgba(0,0,0,.55);
 }
 
-.btnrow{display:flex;gap:12px;justify-content:center;}
+.btnrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 
 .btn{
   padding:12px 18px;border-radius:999px;
@@ -146,12 +201,27 @@ body{
 /* ---------- SECTIONS ---------- */
 .section{padding:56px 0;}
 
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:16px;
+}
+
 .section-head h2{
   font-family:var(--font-display);
   letter-spacing:.16em;
   text-transform:uppercase;
   font-size:22px;
   color:var(--brown-1);
+}
+
+.note{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.75;
 }
 
 /* ---------- CARDS ---------- */
@@ -170,27 +240,29 @@ body{
   height:220px;
   background-size:cover;
   background-position:center;
-  filter:contrast(1.18) saturate(1.22);
+  background-repeat:no-repeat;
+
+  /* slightly toned down so it looks refined, not harsh */
+  filter:contrast(1.12) saturate(1.14);
 }
 
-/* STRONG LUXURY GRADIENTS */
+/* COLLECTION BACKGROUNDS — cleaner + more LV-like */
 .media-suits{
   background:
-  radial-gradient(circle at 26% 20%,rgba(255,255,255,.88),transparent 55%),
-  linear-gradient(120deg,rgba(0,0,0,.24),transparent),
-  linear-gradient(135deg,#A88466,#F4E4D6);
+    radial-gradient(circle at 26% 22%, rgba(255,255,255,.92), transparent 58%),
+    linear-gradient(135deg, #8F6C54 0%, #F6E9DD 100%);
 }
+
 .media-dresses{
   background:
-  radial-gradient(circle at 74% 26%,rgba(255,255,255,.86),transparent 55%),
-  linear-gradient(120deg,rgba(0,0,0,.22),transparent),
-  linear-gradient(135deg,#B58E79,#F6E6DC);
+    radial-gradient(circle at 72% 26%, rgba(255,255,255,.90), transparent 58%),
+    linear-gradient(135deg, #9E7466 0%, #F8EEE6 100%);
 }
+
 .media-sets{
   background:
-  radial-gradient(circle at 42% 62%,rgba(255,255,255,.86),transparent 57%),
-  linear-gradient(120deg,rgba(0,0,0,.24),transparent),
-  linear-gradient(135deg,#9D775A,#F2E1D3);
+    radial-gradient(circle at 42% 62%, rgba(255,255,255,.90), transparent 60%),
+    linear-gradient(135deg, #7F5C43 0%, #F4E6D8 100%);
 }
 
 .card-body{padding:18px;}
@@ -202,30 +274,21 @@ body{
   color:var(--brown-1);
 }
 
+/* ---------- JOIN PANEL (keeps it clean) ---------- */
+.panel{
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(239,230,214,.72));
+  box-shadow:var(--shadow-2);
+  border:1px solid rgba(214,178,94,.18);
+  padding:18px;
+}
+
 /* ---------- FOOTER ---------- */
 .footer{
   padding:30px 0 60px;
   border-top:1px solid rgba(214,178,94,.22);
-  margin-top:40px;
-}
-
-/* ---------- MOBILE ---------- */
-@media(max-width:980px){
-  .grid{grid-template-columns:1fr;}
-}
-@media(max-width:768px){
-  .hero-title{font-size:44px;}
-  .topnav{display:none;}
-}
-
-/* =========================
-   LUXURY GOLD DIVIDER
-   ========================= */
-
-/* creates spacing before footer */
-.footer{
+  margin-top:120px; /* keep luxury breathing space */
   position:relative;
-  margin-top:120px;
 }
 
 /* gold line */
@@ -237,11 +300,10 @@ body{
   transform:translateX(-50%);
   width:180px;
   height:1px;
-
   background:linear-gradient(
     to right,
     rgba(0,0,0,0),
-    rgba(183,159,134,0.9),
+    rgba(214,178,94,0.92),
     rgba(0,0,0,0)
   );
 }
@@ -257,12 +319,22 @@ body{
   height:60px;
   background:radial-gradient(
     ellipse at center,
-    rgba(183,159,134,0.18) 0%,
-    rgba(183,159,134,0.05) 40%,
+    rgba(214,178,94,0.18) 0%,
+    rgba(214,178,94,0.06) 40%,
     rgba(0,0,0,0) 70%
   );
   pointer-events:none;
 }
+
+/* ---------- MOBILE ---------- */
+@media(max-width:980px){
+  .grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .hero-title{font-size:44px;}
+  .topnav{display:none;} /* keeps header clean on mobile */
+}
+
 
 
 
