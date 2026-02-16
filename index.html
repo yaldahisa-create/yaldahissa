@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,48 +32,51 @@
       </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-grid">
-        <div class="hero-media" aria-label="Brand teaser video">
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="assets/teaser.mp4" type="video/mp4" />
-          </video>
-          <div class="fallback" aria-hidden="true"></div>
-          <div class="hero-overlay" aria-hidden="true"></div>
+  </div><!-- /container -->
+
+  <!-- HERO (FULL SCREEN VIDEO) -->
+  <section class="hero hero-full" aria-label="Hero">
+    <div class="hero-media hero-full-media" aria-label="Brand teaser video">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/teaser.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- TEXT ON VIDEO -->
+      <div class="hero-text hero-on-video">
+        <div class="stamp">
+          <span class="dot"></span>
+          <span>Women’s Luxury Clothing</span>
         </div>
 
-        <div class="hero-text">
-          <div class="stamp">
-            <span class="dot"></span>
-            <span>Women’s Luxury Clothing</span>
-          </div>
+        <h1>Excellence<br/>With Purpose</h1>
 
-          <h1>Excellence<br/>With Purpose</h1>
+        <p class="lede">
+          Minimal, high-end, refined. Designed for professional women and entrepreneurs who value elegance and luxury.
+          A private release is coming — no full reveal yet.
+        </p>
 
-          <p class="lede">
-            Minimal, high-end, refined. Designed for professional women and entrepreneurs who value elegance and luxury.
-            A private release is coming — no full reveal yet.
-          </p>
-
-          <div class="btnrow">
-            <a class="btn primary" href="shop.html">Shop Preview →</a>
-            <a class="btn" href="#collections">Explore Collections</a>
-          </div>
-
-          <div class="badges" aria-label="Payments">
-            <span class="badge">Visa</span>
-            <span class="badge">Mastercard</span>
-            <span class="badge">Klarna</span>
-            <span class="badge">Sezzle</span>
-          </div>
-
-          <p class="micro">
-            *Badges are visual. Live checkout will be connected next.
-          </p>
+        <div class="btnrow">
+          <a class="btn primary" href="shop.html">Shop Preview →</a>
+          <a class="btn" href="#collections">Explore Collections</a>
         </div>
+
+        <div class="badges" aria-label="Payments">
+          <span class="badge">Visa</span>
+          <span class="badge">Mastercard</span>
+          <span class="badge">Klarna</span>
+          <span class="badge">Sezzle</span>
+        </div>
+
+        <p class="micro">
+          *Badges are visual. Live checkout will be connected next.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <div class="container">
 
     <!-- COLLECTIONS -->
     <section class="section" id="collections">
@@ -151,7 +155,7 @@
       </div>
     </section>
 
-    <!-- JOIN LIST (BOTTOM) -->
+    <!-- JOIN LIST -->
     <section class="section" id="join">
       <div class="section-head">
         <h2>Join the List</h2>
@@ -170,10 +174,7 @@
           <button class="btn primary" type="submit">Join →</button>
         </form>
 
-        <div class="fine">
-          We respect your privacy. Unsubscribe anytime.
-        </div>
-
+        <div class="fine">We respect your privacy. Unsubscribe anytime.</div>
         <div id="subStatus" class="msg" style="margin-top:10px"></div>
       </div>
     </section>
@@ -191,7 +192,7 @@
       </div>
     </footer>
 
-  </div>
+  </div><!-- /container -->
 
   <script type="module">
     import { setYear, setCartCount } from "./assets/app.js";
@@ -254,5 +255,6 @@
   </script>
 </body>
 </html>
+
 
 
