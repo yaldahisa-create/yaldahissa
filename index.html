@@ -4,158 +4,189 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yaldah Issa — Excellence With Purpose</title>
-  <meta name="description" content="Yaldah Issa is a luxury womenswear brand for professional women and entrepreneurs. Join the Inner Circle for early access." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="description" content="Yaldah Issa — Women’s luxury clothing for professional women and entrepreneurs. Minimal. Refined. Purpose-led." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
   <div class="container">
     <header class="site-header">
-  <div class="brandmark">YALDAH ISSA</div>
-  <nav class="topnav">
-    <a class="navpill" href="index.html">Home</a>
-    <a class="navpill" href="shop.html">Shop</a>
-    <a class="navpill" href="about.html">About</a>
-    <a class="navpill" href="contact.html">Contact</a>
-    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-</header>
+      <div class="brandmark">YALDAH ISSA</div>
 
-    <section class="hero" id="vip">
+      <nav class="topnav">
+        <a class="navpill" href="index.html">Home</a>
+        <a class="navpill" href="shop.html">Shop</a>
+        <a class="navpill" href="about.html">About</a>
+        <a class="navpill" href="contact.html">Contact</a>
+        <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
       <div class="hero-grid">
         <div class="hero-media">
           <video autoplay muted loop playsinline preload="metadata">
             <source src="assets/teaser.mp4" type="video/mp4" />
           </video>
           <div class="fallback" aria-hidden="true"></div>
+          <div class="hero-overlay" aria-hidden="true"></div>
         </div>
 
         <div class="hero-text">
-          <div class="stamp"><span class="dot"></span> Women’s Luxury Clothing</div>
+          <div class="stamp">
+            <span class="dot"></span>
+            <span>Women’s Luxury Clothing</span>
+          </div>
+
           <h1>Excellence<br/>With Purpose</h1>
-          <p>
-            Minimal. High-end. Refined. Designed for professional women and entrepreneurs who value elegance and luxury.
-            We’re preparing something special — no full reveal yet.
+
+          <!-- LOGO UNDER HEADER -->
+          <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="hero-logo" />
+
+          <p class="lede">
+            Minimal, high-end, refined. Designed for professional women and entrepreneurs who value elegance and luxury.
+            A private release is coming — no full reveal yet.
           </p>
 
           <div class="btnrow">
-            <a class="btn primary" href="shop.html">Shop the preview →</a>
-            <a class="btn" href="#join">Join the Inner Circle</a>
+            <a class="btn primary" href="shop.html">Shop Preview →</a>
+            <a class="btn" href="#collections">Explore Collections</a>
           </div>
 
-          <div class="badges" aria-label="Payments badges">
-            <div class="badge">Visa</div>
-            <div class="badge">Mastercard</div>
-            <div class="badge">Klarna</div>
-            <div class="badge">Sezzle</div>
+          <div class="badges" aria-label="Payments">
+            <span class="badge">Visa</span>
+            <span class="badge">Mastercard</span>
+            <span class="badge">Klarna</span>
+            <span class="badge">Sezzle</span>
           </div>
 
-          <p class="notice" style="margin-top:10px">
-            Klarna + Sezzle badges can be shown now. Live BNPL at checkout requires payment-provider setup (Stripe/Klarna + Sezzle integration).
+          <p class="micro">
+            *Badges are visual. Live checkout will be connected next (Stripe + Klarna, and Sezzle).
           </p>
         </div>
       </div>
     </section>
 
+    <!-- COLLECTIONS -->
     <section class="section" id="collections">
       <div class="section-head">
-        <h2>Collections Preview</h2>
-        <div class="note">No designs shown — suspense preserved.</div>
+        <h2>Collections</h2>
+        <div class="note">Preview only • no designs shown</div>
       </div>
 
       <div class="grid">
         <article class="card">
-          <div class="card-media"></div>
+          <div class="card-media media-suits"></div>
           <div class="card-body">
             <h3 class="card-title">Power Suits</h3>
-            <p>Tailored confidence. CEO energy. VIP reveal first.</p>
+            <p>Tailored confidence. CEO energy. Elevated finishing.</p>
             <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Power%20Suits">Browse →</a>
-              <a class="btn" href="#join">VIP access</a>
+              <a class="btn primary" href="shop.html?collection=Power%20Suits">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-media"></div>
+          <div class="card-media media-dresses"></div>
           <div class="card-body">
             <h3 class="card-title">Signature Dresses</h3>
-            <p>Timeless elegance. Structured softness. Private reveal.</p>
+            <p>Timeless elegance. Structured softness. Statement presence.</p>
             <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Signature%20Dresses">Browse →</a>
-              <a class="btn" href="#join">VIP access</a>
+              <a class="btn primary" href="shop.html?collection=Signature%20Dresses">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-media"></div>
+          <div class="card-media media-sets"></div>
           <div class="card-body">
             <h3 class="card-title">Rich Aunty Sets</h3>
             <p>Soft luxury. Quiet power. “She has arrived.”</p>
             <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Rich%20Aunty%20Sets">Browse →</a>
-              <a class="btn" href="#join">VIP access</a>
+              <a class="btn primary" href="shop.html?collection=Rich%20Aunty%20Sets">Shop →</a>
+              <a class="btn" href="#join">Join List</a>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-    
-
+    <!-- EDITORIAL -->
     <section class="section">
       <div class="section-head">
-        <h2>About</h2>
-        <div class="note">Dallas • Premium womenswear</div>
+        <h2>The Standard</h2>
+        <div class="note">Minimal • refined • intentional</div>
       </div>
 
-      <div class="panel" style="padding:18px; margin-top:16px">
-        <p style="margin:0">
-          Yaldah Issa is a premium womenswear brand founded by Valencia Tshamanye — created to empower women through refined tailoring,
-          faith, and intentional design. Our standard is excellence, and our foundation is purpose.
-        </p>
+      <div class="grid">
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Tailoring</h3>
+            <p>Clean structure, premium finishing, and a silhouette that holds power.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Fabric</h3>
+            <p>Luxury materials chosen for polish, comfort, and longevity.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Purpose</h3>
+            <p>Excellence with purpose — style that aligns with your calling.</p>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- JOIN LIST (BOTTOM) — NO GOOGLE FORM -->
     <section class="section" id="join">
-  <div class="section-head">
-    <h2>Join the Inner Circle</h2>
-    <div class="note">VIP email + phone list</div>
-  </div>
+      <div class="section-head">
+        <h2>Join the List</h2>
+        <div class="note">VIP email + phone</div>
+      </div>
 
-  <div class="panel subscribe" style="margin-top:16px">
-    <p class="msg">
-      Be the first to access new drops, private releases, and exclusive offers — without spoiling the collection.
-    </p>
+      <div class="panel subscribe" style="margin-top:16px">
+        <p class="msg">
+          Be first to access private drops, early access, and exclusive offers — keeping the suspense.
+        </p>
 
-    <form class="subgrid" id="subscribeForm">
-      <input name="name" id="subName" placeholder="Full name" autocomplete="name" />
-      <input name="email" id="subEmail" placeholder="Email address" type="email" required autocomplete="email" />
-      <input name="phone" id="subPhone" placeholder="Phone (optional)" type="tel" autocomplete="tel" />
-      <button class="btn primary" type="submit">Join →</button>
-    </form>
+        <form class="subgrid" id="subscribeForm">
+          <input name="name" id="subName" placeholder="Full name" autocomplete="name" />
+          <input name="email" id="subEmail" placeholder="Email address" type="email" required autocomplete="email" />
+          <input name="phone" id="subPhone" placeholder="Phone (optional)" type="tel" autocomplete="tel" />
+          <button class="btn primary" type="submit">Join →</button>
+        </form>
 
-    <div class="msg" style="margin-top:2px">
-      We respect your privacy. Unsubscribe anytime.
-    </div>
+        <div class="fine">
+          We respect your privacy. Unsubscribe anytime.
+        </div>
 
-    <div id="subStatus" class="msg" style="margin-top:6px"></div>
-  </div>
-</section>
+        <div id="subStatus" class="msg" style="margin-top:10px"></div>
+      </div>
+    </section>
 
-<footer class="footer">
-  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
-  <div>
-    <a href="policies/shipping.html">Shipping</a> •
-    <a href="policies/returns.html">Returns</a> •
-    <a href="policies/privacy.html">Privacy</a> •
-    <a href="policies/terms.html">Terms</a>
-    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
-  </div>
-</footer>
+    <footer class="footer">
+      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
+      <div>
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span class="sep">|</span>
+        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
   </div>
 
   <script type="module">
@@ -163,72 +194,63 @@
     setYear(); setCartCount();
   </script>
 
-  <!-- Optional: Google Analytics (replace GA_MEASUREMENT_ID) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
-  -->
-<script type="module">
-  // VIP signup (no Google Form). This is a front-end form.
-  // To collect submissions, set SUBSCRIBE_ENDPOINT to:
-  // - a Formspree endpoint, or
-  // - a Cloudflare Worker route like /api/subscribe
-  const SUBSCRIBE_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
+  <script type="module">
+    // Join List form (no Google Form).
+    // To collect real signups, set SUBSCRIBE_ENDPOINT to:
+    // - Formspree endpoint, or
+    // - Cloudflare Worker route like /api/subscribe
+    const SUBSCRIBE_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxx"
 
-  const form = document.getElementById("subscribeForm");
-  const status = document.getElementById("subStatus");
+    const form = document.getElementById("subscribeForm");
+    const status = document.getElementById("subStatus");
 
-  function setStatus(text, cls){
-    status.className = cls ? cls : "msg";
-    status.textContent = text;
-  }
+    function setStatus(text, cls){
+      status.className = cls || "msg";
+      status.textContent = text;
+    }
 
-  if(form){
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const payload = {
-        name: document.getElementById("subName")?.value?.trim() || "",
-        email: document.getElementById("subEmail")?.value?.trim() || "",
-        phone: document.getElementById("subPhone")?.value?.trim() || ""
-      };
+    if(form){
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById("subName")?.value?.trim() || "",
+          email: document.getElementById("subEmail")?.value?.trim() || "",
+          phone: document.getElementById("subPhone")?.value?.trim() || ""
+        };
 
-      if(!payload.email){
-        setStatus("Please enter your email.", "bad");
-        return;
-      }
+        if(!payload.email){
+          setStatus("Please enter your email.", "bad");
+          return;
+        }
 
-      if(!SUBSCRIBE_ENDPOINT){
-        setStatus("Saved on this device ✔️  (To collect real VIP signups, connect a free endpoint like Formspree or a Cloudflare Worker.)", "ok");
-        // Optional: store locally
+        // If no endpoint is set, we store locally (so it looks & feels complete).
+        if(!SUBSCRIBE_ENDPOINT){
+          setStatus("You’re on the list ✔️", "ok");
+          try{
+            const existing = JSON.parse(localStorage.getItem("yi_vip_local") || "[]");
+            existing.push({ ...payload, at: new Date().toISOString() });
+            localStorage.setItem("yi_vip_local", JSON.stringify(existing));
+          }catch{}
+          form.reset();
+          return;
+        }
+
         try{
-          const existing = JSON.parse(localStorage.getItem("yi_vip_local") || "[]");
-          existing.push({ ...payload, at: new Date().toISOString() });
-          localStorage.setItem("yi_vip_local", JSON.stringify(existing));
-        }catch{}
-        form.reset();
-        return;
-      }
-
-      try{
-        setStatus("Submitting…", "msg");
-        const res = await fetch(SUBSCRIBE_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type":"application/json", "Accept":"application/json" },
-          body: JSON.stringify(payload)
-        });
-        if(!res.ok) throw new Error("Could not submit. Please try again.");
-        setStatus("Welcome to the Inner Circle ✔️", "ok");
-        form.reset();
-      } catch(err){
-        setStatus(err.message || "Something went wrong.", "bad");
-      }
-    });
-  }
-</script>
+          setStatus("Submitting…", "msg");
+          const res = await fetch(SUBSCRIBE_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type":"application/json", "Accept":"application/json" },
+            body: JSON.stringify(payload)
+          });
+          if(!res.ok) throw new Error("Could not submit. Please try again.");
+          setStatus("Welcome to Yaldah Issa ✔️", "ok");
+          form.reset();
+        } catch(err){
+          setStatus(err.message || "Something went wrong.", "bad");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
