@@ -4,23 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product — Yaldah Issa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- If you edit CSS, add cache bust like ?v=18 -->
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
   <div class="container">
+
     <header class="site-header">
-  <div class="brandmark">YALDAH ISSA</div>
-  <nav class="topnav">
-    <a class="navpill" href="index.html">Home</a>
-    <a class="navpill" href="shop.html">Shop</a>
-    <a class="navpill" href="about.html">About</a>
-    <a class="navpill" href="contact.html">Contact</a>
-    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-</header>
+      <div class="brandmark">YALDAH ISSA</div>
+      <nav class="topnav">
+        <a class="navpill" href="index.html">Home</a>
+        <a class="navpill" href="shop.html">Shop</a>
+        <a class="navpill" href="about.html">About</a>
+        <a class="navpill" href="contact.html">Contact</a>
+        <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+    </header>
 
     <section class="section">
       <div class="section-head">
@@ -30,12 +35,16 @@
 
       <div class="panel" style="padding:18px; margin-top:16px">
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px">
+
+          <!-- IMAGE -->
           <div class="panel" style="overflow:hidden">
             <img id="pImg" alt="" style="width:100%;height:380px;object-fit:cover;display:block" />
           </div>
 
+          <!-- DETAILS -->
           <div>
             <div class="stamp"><span class="dot"></span> <span id="pCollection"></span></div>
+
             <h3 style="font-size:34px" id="pName2"></h3>
             <p style="margin-top:10px" id="pDesc"></p>
 
@@ -43,6 +52,11 @@
               <div style="font-family:'Cormorant Garamond',serif; font-size:28px" id="pPrice">$0.00</div>
               <div class="badge" id="pColor">Color</div>
               <div class="badge" id="pFabric">Fabric</div>
+            </div>
+
+            <!-- URGENCY -->
+            <div id="urgencyLine" style="margin-top:12px; font-size:13px; letter-spacing:.06em; color:#8a2f2f; display:none;">
+              Only <span id="stockCount">0</span> left • Limited release
             </div>
 
             <div style="margin-top:14px" class="control">
@@ -57,27 +71,54 @@
               </select>
             </div>
 
+            <!-- BUTTONS -->
             <div class="btnrow" style="margin-top:14px">
               <button class="btn primary" id="add">Add to cart</button>
               <a class="btn" href="cart.html">Go to cart →</a>
             </div>
 
+            <!-- PAYMENTS -->
+            <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="badge">Klarna</span>
+              <span class="badge">Sezzle</span>
+              <span class="badge">Shop Pay</span>
+              <span class="badge">Visa</span>
+              <span class="badge">Mastercard</span>
+              <span class="badge">Amex</span>
+            </div>
+
+            <div style="margin-top:6px; font-size:12px; opacity:.75;">
+              Buy now, pay later options available at checkout.
+            </div>
+
+            <!-- SECURE CHECKOUT -->
+            <div style="margin-top:10px; font-size:13px; opacity:.85;">
+              🔒 Secure checkout • Encrypted payments • Protected purchase
+            </div>
+
+            <!-- SHIPPING NOTE -->
+            <div style="margin-top:10px; font-size:13px; opacity:.8;">
+              Pre-order / limited release — ships within 7–14 business days
+            </div>
+
             <div class="notice" style="margin-top:10px" id="invNote"></div>
           </div>
+
         </div>
       </div>
     </section>
 
     <footer class="footer">
-  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
-  <div>
-    <a href="policies/shipping.html">Shipping</a> •
-    <a href="policies/returns.html">Returns</a> •
-    <a href="policies/privacy.html">Privacy</a> •
-    <a href="policies/terms.html">Terms</a>
-    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
-  </div>
-</footer>
+      <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
+      <div>
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
+
   </div>
 
   <script type="module">
@@ -100,6 +141,9 @@
     const qty = document.getElementById("qty");
     const invNote = document.getElementById("invNote");
 
+    const urgencyLine = document.getElementById("urgencyLine");
+    const stockCount = document.getElementById("stockCount");
+
     if(!p){
       pName.textContent = "Product not found";
       document.querySelector(".panel").innerHTML = "<p>Sorry, this product link is invalid.</p>";
@@ -117,7 +161,16 @@
       document.getElementById("pFabric").textContent = p.fabric;
 
       size.innerHTML = p.sizes.map(s => `<option>${s}</option>`).join("");
-      invNote.textContent = p.inventory ? `Limited stock: ${p.inventory} available (preview inventory).` : "Limited stock.";
+
+      // Inventory note + urgency line
+      if (p.inventory && Number(p.inventory) > 0) {
+        invNote.textContent = `Limited stock: ${p.inventory} available (preview inventory).`;
+        stockCount.textContent = String(p.inventory);
+        urgencyLine.style.display = "block";
+      } else {
+        invNote.textContent = "Limited stock.";
+        urgencyLine.style.display = "none";
+      }
     }
 
     document.getElementById("add").addEventListener("click", () => {
@@ -132,3 +185,4 @@
   </script>
 </body>
 </html>
+
