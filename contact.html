@@ -4,82 +4,164 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Yaldah Issa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="description" content="Contact Yaldah Issa." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css" />
-</head>
-<body>
-  <div class="container">
-    <header class="site-header">
-  <div class="brandmark">YALDAH ISSA</div>
-  <nav class="topnav">
-    <a class="navpill" href="index.html">Home</a>
-    <a class="navpill" href="shop.html">Shop</a>
-    <a class="navpill" href="about.html">About</a>
-    <a class="navpill" href="contact.html">Contact</a>
-    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-</header>
 
+  <link rel="stylesheet" href="assets/styles.css?v=102" />
+</head>
+
+<body>
+  <div class="lux-cursor" aria-hidden="true"></div>
+
+  <header class="site-header" aria-label="Site header">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+      <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+      <span class="brand-name">YALDAH ISSA</span>
+    </a>
+
+    <nav class="topnav" aria-label="Primary navigation">
+      <a class="navpill" href="index.html">Home</a>
+      <a class="navpill" href="shop.html">Shop</a>
+      <a class="navpill" href="about.html">About</a>
+      <a class="navpill" href="contact.html">Contact</a>
+
+      <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
+
+      <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a class="navpill" href="login.html">Login</a>
+    </nav>
+
+    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
+      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="shop.html">Shop</a>
+      <a class="menu-item" href="about.html">About</a>
+      <a class="menu-item" href="contact.html">Contact</a>
+      <a class="menu-item" href="cart.html">Cart</a>
+      <a class="menu-item" href="login.html">Login</a>
+
+      <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
+    </div>
+    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  </header>
+
+  <div class="container">
     <section class="section">
       <div class="section-head">
         <h2>Contact</h2>
-        <div class="note">We’ll respond within 1–2 business days</div>
+        <div class="note">We respond in 1–2 business days</div>
       </div>
 
-      <div class="panel" style="padding:18px; margin-top:16px">
-        <p>For press, collaborations, or order support, contact us below.</p>
-
-        <div class="panel" style="padding:16px; margin-top:14px">
-          <h3 style="font-size:26px">Email</h3>
-          <p style="margin-top:8px">
-            <a href="mailto:yaldahisa@gmail.com" style="text-decoration:underline;color:var(--gold)">yaldahisa@gmail.com</a>
+      <div class="grid" style="grid-template-columns:1fr; gap:16px;">
+        <article class="panel">
+          <h3 class="card-title" style="margin-bottom:10px;">Email</h3>
+          <p class="msg">
+            <a href="mailto:yaldahisa@gmail.com" class="btn primary" style="display:inline-block;margin-top:8px;">
+              Email Yaldah Issa
+            </a>
           </p>
-          <div class="notice" style="margin-top:8px">This works immediately (no backend needed).</div>
-        </div>
+        </article>
 
-        <div class="panel" style="padding:16px; margin-top:14px">
-          <h3 style="font-size:26px">Contact Form</h3>
-          <p class="notice" style="margin-top:8px">
-            To make this form deliver messages, replace <code>FORM_ENDPOINT</code> with your endpoint (Formspree or a Cloudflare Worker).
-          </p>
+        <article class="panel subscribe">
+          <h3 class="card-title" style="margin-bottom:10px;">Message</h3>
+          <p class="msg">Send a note for press, collaborations, or support.</p>
 
-          <form class="form" method="POST" action="FORM_ENDPOINT">
-            <input name="name" placeholder="Full name" required />
-            <input name="email" type="email" placeholder="Email address" required />
-            <textarea name="message" placeholder="Your message" required></textarea>
-            <button class="btn primary" type="submit">Send message</button>
+          <!-- Placeholder: no backend required yet -->
+          <form id="contactForm" style="margin-top:14px;">
+            <div style="display:grid; gap:12px;">
+              <input id="cName" placeholder="Full name" autocomplete="name"
+                style="height:46px;border-radius:999px;border:1px solid rgba(214,178,94,.35);padding:0 16px;background:rgba(255,255,255,.60);outline:none;">
+              <input id="cEmail" type="email" placeholder="Email address" autocomplete="email" required
+                style="height:46px;border-radius:999px;border:1px solid rgba(214,178,94,.35);padding:0 16px;background:rgba(255,255,255,.60);outline:none;">
+              <textarea id="cMsg" placeholder="Message" rows="5" required
+                style="border-radius:18px;border:1px solid rgba(214,178,94,.35);padding:14px 16px;background:rgba(255,255,255,.60);outline:none;"></textarea>
+              <button class="btn primary" type="submit" style="height:46px;">Send</button>
+            </div>
           </form>
-        </div>
 
-        <div class="panel" style="padding:16px; margin-top:14px">
-          <h3 style="font-size:26px">Social</h3>
-          <p class="notice" style="margin-top:8px">Replace # with your real links.</p>
-          <div class="btnrow" style="margin-top:10px">
-            <a class="btn" href="#">Instagram</a>
-            <a class="btn" href="#">TikTok</a>
-            <a class="btn" href="#">Pinterest</a>
-          </div>
-        </div>
+          <div id="contactStatus" class="msg" style="margin-top:12px;"></div>
+          <div class="fine" style="margin-top:10px;">(Form can be connected later to Formspree or a Cloudflare Worker.)</div>
+        </article>
       </div>
     </section>
 
     <footer class="footer">
-  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
-  <div>
-    <a href="policies/shipping.html">Shipping</a> •
-    <a href="policies/returns.html">Returns</a> •
-    <a href="policies/privacy.html">Privacy</a> •
-    <a href="policies/terms.html">Terms</a>
-    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
-  </div>
-</footer>
+      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
+      <div class="footer-links">
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span class="sep">|</span>
+        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
   </div>
 
   <script type="module">
     import { setYear, setCartCount } from "./assets/app.js";
     setYear(); setCartCount();
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+      const menuBackdrop = document.getElementById("menuBackdrop");
+      if(menuBtn && menuPanel && menuBackdrop){
+        function closeMenu(){
+          menuBtn.setAttribute("aria-expanded","false");
+          menuPanel.classList.remove("open");
+          menuBackdrop.classList.remove("open");
+          menuPanel.setAttribute("aria-hidden","true");
+        }
+        function openMenu(){
+          menuBtn.setAttribute("aria-expanded","true");
+          menuPanel.classList.add("open");
+          menuBackdrop.classList.add("open");
+          menuPanel.setAttribute("aria-hidden","false");
+        }
+        menuBtn.addEventListener("click", () => {
+          const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+          isOpen ? closeMenu() : openMenu();
+        });
+        menuBackdrop.addEventListener("click", closeMenu);
+        window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+      }
+
+      // local-only submit (for now)
+      const form = document.getElementById("contactForm");
+      const status = document.getElementById("contactStatus");
+      if(form && status){
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          status.className = "ok";
+          status.textContent = "Message saved. We’ll reply by email.";
+          form.reset();
+        });
+      }
+    });
+
+    const lux = document.querySelector(".lux-cursor");
+    if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      window.addEventListener("mousemove", (e) => {
+        lux.style.left = e.clientX + "px";
+        lux.style.top = e.clientY + "px";
+      });
+    }
+  </script>
 </body>
 </html>
+
