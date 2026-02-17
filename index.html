@@ -1,3 +1,7 @@
+<!-- =========================
+     index.html (FULL FILE)
+     Copy + paste entire file
+     ========================= -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,50 +15,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Cache-bust so Cloudflare shows the latest CSS -->
-  <link rel="stylesheet" href="assets/styles.css?v=15" />
+  <link rel="stylesheet" href="assets/styles.css?v=20" />
 </head>
 
 <body>
   <!-- HEADER (FULL WIDTH) -->
   <header class="site-header" aria-label="Site header">
+    <!-- Hamburger (mobile) -->
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
 
-    <!-- Left -->
-    <div class="header-left">
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+      <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+      <span class="brand-name">YALDAH ISSA</span>
+    </a>
 
-    <!-- Center -->
-    <div class="header-center">
-      <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
-        <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
-        <span class="brand-name">YALDAH ISSA</span>
-      </a>
-    </div>
+    <!-- Desktop nav -->
+    <nav class="topnav" aria-label="Primary navigation">
+      <a class="navpill" href="index.html">Home</a>
+      <a class="navpill" href="shop.html">Shop</a>
+      <a class="navpill" href="about.html">About</a>
+      <a class="navpill" href="contact.html">Contact</a>
 
-    <!-- Right -->
-    <div class="header-right">
-      <nav class="topnav" aria-label="Primary navigation">
-        <a class="navpill" href="index.html">Home</a>
-        <a class="navpill" href="shop.html">Shop</a>
-        <a class="navpill" href="about.html">About</a>
-        <a class="navpill" href="contact.html">Contact</a>
+      <!-- Search -->
+      <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
 
-        <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
-          <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
-          <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
-        </form>
+      <a class="navpill navpill-cart" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
 
-        <a class="navpill navpill-cart" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-      </nav>
-    </div>
-
-    <!-- Menu dropdown -->
+    <!-- Mobile dropdown menu -->
     <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
+      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="shop.html">Shop</a>
+      <a class="menu-item" href="about.html">About</a>
+      <a class="menu-item" href="contact.html">Contact</a>
+      <a class="menu-item" href="cart.html">Cart</a>
+
       <a class="menu-item" href="shop.html?collection=Rich%20Aunty%20Sets">Rich Aunty Sets</a>
       <a class="menu-item" href="shop.html?collection=Signature%20Dresses">Signature Dresses</a>
       <a class="menu-item" href="shop.html?collection=Power%20Suits">Power Suits</a>
+
+      <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
     </div>
 
     <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
@@ -71,6 +79,7 @@
 
       <div class="hero-text hero-on-video">
         <h1 class="hero-title">Excellence<br/>With Purpose</h1>
+
         <div class="btnrow">
           <a class="btn primary" href="shop.html">Shop Preview</a>
           <a class="btn" href="#collections">Explore Collections</a>
@@ -210,10 +219,7 @@
     if(form){
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        const payload = {
-          email: document.getElementById("subEmail")?.value?.trim() || ""
-        };
+        const payload = { email: document.getElementById("subEmail")?.value?.trim() || "" };
 
         if(!payload.email){
           setStatus("Please enter your email.", "bad");
