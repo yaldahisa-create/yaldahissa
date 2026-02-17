@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- bump version when you edit -->
-  <link rel="stylesheet" href="assets/styles.css?v=16" />
+  <link rel="stylesheet" href="assets/styles.css?v=17" />
 </head>
 
 <body>
@@ -57,7 +57,7 @@
 
   <main class="container">
 
-    <!-- SHOP TOP (luxury, no extra white header) -->
+    <!-- SHOP TOP -->
     <section class="shop-top">
       <div>
         <div class="shop-kicker">Shop Preview</div>
@@ -104,14 +104,16 @@
     </footer>
   </main>
 
-  <!-- Your existing helpers -->
+  <!-- helpers -->
   <script type="module">
     import { setYear, setCartCount } from "./assets/app.js";
     setYear(); setCartCount();
   </script>
 
-  <!-- SHOP RENDER (preview products; replace later with real inventory) -->
+  <!-- SHOP RENDER (REAL PRODUCTS) -->
   <script type="module">
+    import { PRODUCTS } from "./assets/products.js";
+
     // Clean ugly URLs like ?q=. or empty q
     const url = new URL(window.location.href);
     const qRaw = (url.searchParams.get("q") || "").trim();
@@ -128,7 +130,10 @@
     const colChip = document.getElementById("activeCollectionChip");
     const qChip = document.getElementById("activeQueryChip");
     colChip.textContent = collection ? collection : "All Collections";
-    if (q) { qChip.style.display = "inline-flex"; qChip.textContent = `Search: ${q}`; }
+    if (q) {
+      qChip.style.display = "inline-flex";
+      qChip.textContent = `Search: ${q}`;
+    }
 
     // Make the right pill active
     document.querySelectorAll(".filter-pill").forEach(a => {
@@ -138,23 +143,21 @@
       if (!aCol && !collection) a.classList.add("active");
     });
 
-    // Preview-only products (no designs). Replace with your real items later.
-    // If you already have real products elsewhere, tell me where, and I’ll hook it in.
-    const PRODUCTS = [
-      { title:"Power Suit — Executive Set", collection:"Power Suits", price:"From $—", badge:"Preview" },
-      { title:"Power Suit — Pinstripe Memo", collection:"Power Suits", price:"From $—", badge:"Preview" },
-      { title:"Signature Dress — Sculpted Midi", collection:"Signature Dresses", price:"From $—", badge:"Preview" },
-      { title:"Signature Dress — Evening Elegance", collection:"Signature Dresses", price:"From $—", badge:"Preview" },
-      { title:"Rich Aunty Set — Quiet Luxury", collection:"Rich Aunty Sets", price:"From $—", badge:"Preview" },
-      { title:"Rich Aunty Set — Weekend Chic", collection:"Rich Aunty Sets", price:"From $—", badge:"Preview" },
-    ];
-
+    // Filter real products
     const filtered = PRODUCTS.filter(p => {
       const matchCol = collection ? p.collection === collection : true;
-      const matchQ = q ? p.title.toLowerCase().includes(q) || p.collection.toLowerCase().includes(q) : true;
+
+      const matchQ = q
+        ? (p.name || "").toLowerCase().includes(q)
+          || (p.collection || "").toLowerCase().includes(q)
+          || (p.color || "").toLowerCase().includes(q)
+          || (p.fabric || "").toLowerCase().includes(q)
+        : true;
+
       return matchCol && matchQ;
     });
 
+    // Render
     const grid = document.getElementById("productGrid");
     const empty = document.getElementById("emptyState");
     grid.innerHTML = "";
@@ -163,21 +166,27 @@
       empty.style.display = "block";
     } else {
       empty.style.display = "none";
+
       filtered.forEach(p => {
+        const price = `$${(Number(p.price_cents || 0) / 100).toFixed(2)}`;
+        const img = (p.images && p.images[0]) ? p.images[0] : "";
+
         const card = document.createElement("article");
         card.className = "product-card";
         card.innerHTML = `
-          <div class="product-media ${p.collection === "Power Suits" ? "tile-suits" : p.collection === "Signature Dresses" ? "tile-dresses" : "tile-sets"}">
-            <div class="product-badge">${p.badge}</div>
-          </div>
-          <div class="product-body">
-            <div class="product-collection">${p.collection}</div>
-            <h3 class="product-title">${p.title}</h3>
-            <div class="product-row">
-              <div class="product-price">${p.price}</div>
-              <a class="product-btn" href="#join">Request Access</a>
+          <a class="product-link" href="product.html?id=${encodeURIComponent(p.id)}" aria-label="View ${p.name}">
+            <div class="product-media">
+              ${img ? `<img src="${img}" alt="${p.name}" loading="lazy">` : `<div class="product-fallback"></div>`}
             </div>
-          </div>
+            <div class="product-body">
+              <div class="product-collection">${p.collection || ""}</div>
+              <h3 class="product-title">${p.name || ""}</h3>
+              <div class="product-row">
+                <div class="product-price">${price}</div>
+                <span class="product-btn">View →</span>
+              </div>
+            </div>
+          </a>
         `;
         grid.appendChild(card);
       });
@@ -214,5 +223,8 @@
     menuBackdrop?.addEventListener("click", closeMenu);
     window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
   </script>
+
 </body>
 </html>
+
+
