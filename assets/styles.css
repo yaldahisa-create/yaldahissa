@@ -432,6 +432,65 @@ body{
   opacity:.65;
 }
 
+/* ==============================
+   LUXURY CURSOR GLOW (LV FEEL)
+   ============================== */
+
+.lux-cursor{
+  position:fixed;
+  top:0; left:0;
+  width:220px;
+  height:220px;
+  border-radius:999px;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  opacity:0;
+  transition:opacity .25s ease;
+  background:radial-gradient(
+    circle at center,
+    rgba(214,178,94,.22) 0%,
+    rgba(214,178,94,.12) 25%,
+    rgba(214,178,94,.06) 45%,
+    rgba(0,0,0,0) 70%
+  );
+  filter: blur(2px);
+  mix-blend-mode: soft-light;
+}
+
+/* Only show on devices that have a mouse */
+@media (hover:hover) and (pointer:fine){
+  body:hover .lux-cursor{ opacity:1; }
+}
+
+/* Cards react when cursor is near */
+.card{
+  position:relative;
+  overflow:hidden;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:18px;
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+  background:linear-gradient(
+    120deg,
+    rgba(214,178,94,.18),
+    rgba(255,255,255,.00) 35%,
+    rgba(214,178,94,.10) 70%,
+    rgba(0,0,0,0)
+  );
+}
+
+.card:hover::after{
+  opacity:1;
+}
+
+
 
 
 
