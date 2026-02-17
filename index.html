@@ -1,7 +1,3 @@
-<!-- =========================
-     index.html (FULL FILE)
-     Copy + paste entire file
-     ========================= -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,27 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Cache-bust so Cloudflare shows the latest CSS -->
-  <link rel="stylesheet" href="assets/styles.css?v=20" />
+  <!-- bump v when you update css -->
+  <link rel="stylesheet" href="assets/styles.css?v=99" />
 </head>
-<script>
-  // Luxury cursor glow (desktop only)
-  const lux = document.querySelector(".lux-cursor");
-
-  if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
-    window.addEventListener("mousemove", (e) => {
-      lux.style.left = e.clientX + "px";
-      lux.style.top = e.clientY + "px";
-    });
-  }
-</script>
 
 <body>
-     <div class="lux-cursor" aria-hidden="true"></div>
+  <!-- Luxury cursor glow (desktop only) -->
+  <div class="lux-cursor" aria-hidden="true"></div>
 
-  <!-- HEADER (FULL WIDTH) -->
+  <!-- HEADER -->
   <header class="site-header" aria-label="Site header">
-    <!-- Hamburger (mobile) -->
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
       <span></span><span></span><span></span>
     </button>
@@ -51,33 +36,29 @@
       <a class="navpill" href="about.html">About</a>
       <a class="navpill" href="contact.html">Contact</a>
 
-      <!-- Search -->
       <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
         <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
       </form>
 
-      <a class="navpill navpill-cart" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a class="navpill" href="login.html">Login</a>
     </nav>
 
-    <!-- Mobile dropdown menu -->
+    <!-- Mobile menu -->
     <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
       <a class="menu-item" href="index.html">Home</a>
       <a class="menu-item" href="shop.html">Shop</a>
       <a class="menu-item" href="about.html">About</a>
       <a class="menu-item" href="contact.html">Contact</a>
       <a class="menu-item" href="cart.html">Cart</a>
-
-      <a class="menu-item" href="shop.html?collection=Rich%20Aunty%20Sets">Rich Aunty Sets</a>
-      <a class="menu-item" href="shop.html?collection=Signature%20Dresses">Signature Dresses</a>
-      <a class="menu-item" href="shop.html?collection=Power%20Suits">Power Suits</a>
+      <a class="menu-item" href="login.html">Login</a>
 
       <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
         <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
       </form>
     </div>
-
     <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
   </header>
 
@@ -102,7 +83,6 @@
   </section>
 
   <div class="container">
-
     <!-- COLLECTIONS -->
     <section class="section" id="collections">
       <div class="section-head">
@@ -110,7 +90,7 @@
         <div class="note">Preview only • no designs shown</div>
       </div>
 
-      <div class="grid collections-slider">
+      <div class="grid">
         <article class="card">
           <div class="card-media media-suits"></div>
           <div class="card-body">
@@ -177,7 +157,7 @@
       </div>
     </section>
 
-    <!-- JOIN LIST (EMAIL ONLY) -->
+    <!-- JOIN LIST -->
     <section class="section" id="join">
       <div class="section-head">
         <h2>Join the List</h2>
@@ -185,9 +165,7 @@
       </div>
 
       <div class="panel subscribe" style="margin-top:16px">
-        <p class="msg">
-          Be first to access private drops, early access, and exclusive offers — keeping the suspense.
-        </p>
+        <p class="msg">Be first to access private drops, early access, and exclusive offers — keeping the suspense.</p>
 
         <form class="subgrid" id="subscribeForm">
           <input name="email" id="subEmail" placeholder="Email address" type="email" required autocomplete="email" />
@@ -211,15 +189,53 @@
         <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
       </div>
     </footer>
-
-  </div><!-- /container -->
+  </div>
 
   <script type="module">
     import { setYear, setCartCount } from "./assets/app.js";
     setYear(); setCartCount();
   </script>
 
-  <script type="module">
+  <script>
+    // Mobile menu (runs after page loads)
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+      const menuBackdrop = document.getElementById("menuBackdrop");
+
+      if(!menuBtn || !menuPanel || !menuBackdrop) return;
+
+      function closeMenu(){
+        menuBtn.setAttribute("aria-expanded","false");
+        menuPanel.classList.remove("open");
+        menuBackdrop.classList.remove("open");
+        menuPanel.setAttribute("aria-hidden","true");
+      }
+      function openMenu(){
+        menuBtn.setAttribute("aria-expanded","true");
+        menuPanel.classList.add("open");
+        menuBackdrop.classList.add("open");
+        menuPanel.setAttribute("aria-hidden","false");
+      }
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+        isOpen ? closeMenu() : openMenu();
+      });
+      menuBackdrop.addEventListener("click", closeMenu);
+      window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+    });
+
+    // Luxury cursor glow (desktop only)
+    const lux = document.querySelector(".lux-cursor");
+    if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      window.addEventListener("mousemove", (e) => {
+        lux.style.left = e.clientX + "px";
+        lux.style.top = e.clientY + "px";
+      });
+    }
+
+    // Join list (local save)
     const SUBSCRIBE_ENDPOINT = "";
     const form = document.getElementById("subscribeForm");
     const status = document.getElementById("subStatus");
@@ -266,39 +282,9 @@
       });
     }
   </script>
-
-  <!-- MENU SCRIPT (BOTTOM) -->
-  <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const menuPanel = document.getElementById("menuPanel");
-    const menuBackdrop = document.getElementById("menuBackdrop");
-
-    function closeMenu(){
-      if(!menuBtn || !menuPanel || !menuBackdrop) return;
-      menuBtn.setAttribute("aria-expanded","false");
-      menuPanel.classList.remove("open");
-      menuBackdrop.classList.remove("open");
-      menuPanel.setAttribute("aria-hidden","true");
-    }
-
-    function openMenu(){
-      if(!menuBtn || !menuPanel || !menuBackdrop) return;
-      menuBtn.setAttribute("aria-expanded","true");
-      menuPanel.classList.add("open");
-      menuBackdrop.classList.add("open");
-      menuPanel.setAttribute("aria-hidden","false");
-    }
-
-    menuBtn?.addEventListener("click", () => {
-      const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    menuBackdrop?.addEventListener("click", closeMenu);
-    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
-  </script>
 </body>
 </html>
+
 
 
 
