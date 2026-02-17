@@ -17,8 +17,21 @@
   <!-- Cache-bust so Cloudflare shows the latest CSS -->
   <link rel="stylesheet" href="assets/styles.css?v=20" />
 </head>
+<script>
+  // Luxury cursor glow (desktop only)
+  const lux = document.querySelector(".lux-cursor");
+
+  if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    window.addEventListener("mousemove", (e) => {
+      lux.style.left = e.clientX + "px";
+      lux.style.top = e.clientY + "px";
+    });
+  }
+</script>
 
 <body>
+     <div class="lux-cursor" aria-hidden="true"></div>
+
   <!-- HEADER (FULL WIDTH) -->
   <header class="site-header" aria-label="Site header">
     <!-- Hamburger (mobile) -->
