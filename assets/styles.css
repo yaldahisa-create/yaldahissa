@@ -350,6 +350,89 @@ body{
 /* hide old hero elements if present */
 .hero .stamp,.hero .lede,.hero .badges,.hero .micro{display:none!important;}
 
+/* ==============================
+   LUXURY LV EXPERIENCE LAYER
+   ============================== */
+
+/* GLOBAL SPACING */
+.section{
+  padding:90px 0; /* more breathing space */
+}
+
+/* TITLES */
+.section-head h2{
+  font-size:18px;
+  letter-spacing:.35em;
+  font-weight:500;
+}
+
+/* BODY TEXT QUIETER */
+.card p,
+.msg,
+.note{
+  opacity:.75;
+  font-size:13px;
+}
+
+/* HERO TITLE MORE FASHION */
+.hero-title{
+  font-size:64px;
+  font-weight:400;
+  letter-spacing:.06em;
+}
+
+/* BUTTONS — less aggressive */
+.btn{
+  padding:11px 18px;
+  font-size:11px;
+  letter-spacing:.22em;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(214,178,94,.45);
+}
+
+.btn.primary{
+  background:linear-gradient(180deg,#f7e6b5,#d6b25e);
+}
+
+/* CARDS — FLOAT EFFECT */
+.card{
+  transition:transform .6s cubic-bezier(.22,1,.36,1),
+             box-shadow .6s ease,
+             opacity .6s ease;
+  opacity:.92;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 35px 70px rgba(0,0,0,.22);
+  opacity:1;
+}
+
+/* FADE IN ON LOAD */
+.card{
+  animation:fadeLuxury 1.2s ease both;
+}
+.card:nth-child(2){animation-delay:.15s;}
+.card:nth-child(3){animation-delay:.30s;}
+
+@keyframes fadeLuxury{
+  from{opacity:0; transform:translateY(25px);}
+  to{opacity:.92; transform:translateY(0);}
+}
+
+/* FOOTER EXTRA AIR */
+.footer{
+  margin-top:160px;
+  opacity:.85;
+}
+
+/* GOLD LINE MORE SUBTLE */
+.footer::before{
+  opacity:.65;
+}
+
+
 
 
 
