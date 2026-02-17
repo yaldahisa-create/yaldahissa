@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Client Portal — Yaldah Issa</title>
+  <meta name="description" content="Client portal — Yaldah Issa. Luxury with purpose." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- IMPORTANT: bump version when updating -->
+  <link rel="stylesheet" href="assets/styles.css?v=101" />
+</head>
+
+<body>
+  <!-- Luxury cursor glow (desktop only) -->
+  <div class="lux-cursor" aria-hidden="true"></div>
+
+  <!-- HEADER (same as index) -->
+  <header class="site-header" aria-label="Site header">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+      <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+      <span class="brand-name">YALDAH ISSA</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="topnav" aria-label="Primary navigation">
+      <a class="navpill" href="index.html">Home</a>
+      <a class="navpill" href="shop.html">Shop</a>
+      <a class="navpill" href="about.html">About</a>
+      <a class="navpill" href="contact.html">Contact</a>
+
+      <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
+
+      <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a class="navpill" href="login.html">Login</a>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
+      <a class="menu-item" href="index.html">Home</a>
+      <a class="menu-item" href="shop.html">Shop</a>
+      <a class="menu-item" href="about.html">About</a>
+      <a class="menu-item" href="contact.html">Contact</a>
+      <a class="menu-item" href="cart.html">Cart</a>
+      <a class="menu-item" href="login.html">Login</a>
+
+      <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
+        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
+        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
+      </form>
+    </div>
+
+    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  </header>
+
+  <!-- PAGE -->
+  <div class="container">
+    <section class="section" style="min-height:76vh; display:flex; align-items:center; justify-content:center;">
+      <div class="panel subscribe" style="max-width:520px; width:100%;">
+
+        <div class="section-head" style="margin-bottom:18px; align-items:center;">
+          <h2 style="margin:0;">Client Portal</h2>
+          <div class="note">Private</div>
+        </div>
+
+        <p class="msg" style="text-align:center; margin-bottom:16px;">
+          Access is currently limited to invited clients.<br>
+          VIP access activates after the launch.
+        </p>
+
+        <form id="loginForm" style="margin-top:8px;">
+          <div style="display:grid; gap:12px;">
+            <input id="loginEmail" type="email" placeholder="Email address" autocomplete="email" required
+              style="height:46px;border-radius:999px;border:1px solid rgba(214,178,94,.35);padding:0 16px;background:rgba(255,255,255,.60);outline:none;">
+            <input id="loginPass" type="password" placeholder="Password" autocomplete="current-password" required
+              style="height:46px;border-radius:999px;border:1px solid rgba(214,178,94,.35);padding:0 16px;background:rgba(255,255,255,.60);outline:none;">
+            <button class="btn primary" type="submit" style="height:46px;">Enter</button>
+          </div>
+        </form>
+
+        <div id="loginStatus" class="msg" style="margin-top:14px; text-align:center;"></div>
+
+        <div style="margin-top:22px; text-align:center;">
+          <a class="btn" href="index.html#join">Join VIP List</a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
+      <div class="footer-links">
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span class="sep">|</span>
+        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { setYear, setCartCount } from "./assets/app.js";
+    setYear(); setCartCount();
+  </script>
+
+  <script>
+    // Mobile menu
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+      const menuBackdrop = document.getElementById("menuBackdrop");
+
+      if(menuBtn && menuPanel && menuBackdrop){
+        function closeMenu(){
+          menuBtn.setAttribute("aria-expanded","false");
+          menuPanel.classList.remove("open");
+          menuBackdrop.classList.remove("open");
+          menuPanel.setAttribute("aria-hidden","true");
+        }
+        function openMenu(){
+          menuBtn.setAttribute("aria-expanded","true");
+          menuPanel.classList.add("open");
+          menuBackdrop.classList.add("open");
+          menuPanel.setAttribute("aria-hidden","false");
+        }
+        menuBtn.addEventListener("click", () => {
+          const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+          isOpen ? closeMenu() : openMenu();
+        });
+        menuBackdrop.addEventListener("click", closeMenu);
+        window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+      }
+
+      // Login placeholder behavior (until March)
+      const form = document.getElementById("loginForm");
+      const status = document.getElementById("loginStatus");
+
+      if(form && status){
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          status.className = "msg";
+          status.textContent = "Private access is not live yet. VIP members will receive access after launch.";
+        });
+      }
+    });
+
+    // Luxury cursor glow (desktop only)
+    const lux = document.querySelector(".lux-cursor");
+    if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      window.addEventListener("mousemove", (e) => {
+        lux.style.left = e.clientX + "px";
+        lux.style.top = e.clientY + "px";
+      });
+    }
+  </script>
+</body>
+</html>
