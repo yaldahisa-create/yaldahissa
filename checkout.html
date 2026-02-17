@@ -3,108 +3,245 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Checkout — Yaldah Issa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Secure Checkout — Yaldah Issa</title>
+  <meta name="description" content="Secure checkout — Yaldah Issa." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css" />
-</head>
-<body>
-  <div class="container">
-    <header class="site-header">
-  <div class="brandmark">YALDAH ISSA</div>
-  <nav class="topnav">
-    <a class="navpill" href="index.html">Home</a>
-    <a class="navpill" href="shop.html">Shop</a>
-    <a class="navpill" href="about.html">About</a>
-    <a class="navpill" href="contact.html">Contact</a>
-    <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-</header>
 
+  <link rel="stylesheet" href="assets/styles.css?v=20" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" aria-label="Site header">
+    <div class="header-left">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+        <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+        <span class="brand-name">YALDAH ISSA</span>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <nav class="topnav" aria-label="Primary navigation">
+        <a class="navpill" href="index.html">Home</a>
+        <a class="navpill" href="shop.html">Shop</a>
+        <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+    </div>
+
+    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
+      <a class="menu-item" href="shop.html?collection=Rich%20Aunty%20Sets">Rich Aunty Sets</a>
+      <a class="menu-item" href="shop.html?collection=Signature%20Dresses">Signature Dresses</a>
+      <a class="menu-item" href="shop.html?collection=Power%20Suits">Power Suits</a>
+    </div>
+    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  </header>
+
+  <main class="container">
     <section class="section">
       <div class="section-head">
-        <h2>Checkout</h2>
-        <div class="note">Secure checkout • Visa • Klarna • Sezzle</div>
+        <h2>Secure Checkout</h2>
+        <div class="note"><a class="navpill" href="cart.html">← Back to cart</a></div>
       </div>
 
-      <div class="panel" style="padding:18px; margin-top:16px">
-        <p>
-          This is the checkout screen. To make payments live, we’ll connect a payment provider and add a Cloudflare Worker endpoint.
-        </p>
+      <div class="checkout-wrap">
+        <!-- FORM -->
+        <div class="panel checkout-panel">
+          <div class="stamp"><span class="dot"></span><span>Encrypted • Protected</span></div>
 
-        <div class="badges">
-          <div class="badge">Visa</div>
-          <div class="badge">Mastercard</div>
-          <div class="badge">Klarna</div>
-          <div class="badge">Sezzle</div>
-          <div class="badge">SSL</div>
+          <h3 class="checkout-title">Customer Details</h3>
+          <p class="muted" style="margin-top:8px;">This is a preview checkout. Payment gateway can be connected next.</p>
+
+          <form id="checkoutForm" class="checkout-form">
+            <div class="control">
+              <label for="name">Full name</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+
+            <div class="control">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="control">
+              <label for="address">Address</label>
+              <input id="address" name="address" autocomplete="street-address" required />
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div class="control">
+                <label for="city">City</label>
+                <input id="city" name="city" autocomplete="address-level2" required />
+              </div>
+
+              <div class="control">
+                <label for="zip">ZIP</label>
+                <input id="zip" name="zip" autocomplete="postal-code" required />
+              </div>
+            </div>
+
+            <button class="btn primary" type="submit" style="margin-top:14px; width:100%;">
+              Place Order (Preview) →
+            </button>
+
+            <div class="secure-line" style="margin-top:12px; text-align:center;">
+              🔒 Secure checkout • Encrypted payments • Protected purchase
+            </div>
+          </form>
+
+          <div class="pay-row" style="margin-top:14px;">
+            <span class="pay-pill">Klarna</span>
+            <span class="pay-pill">Sezzle</span>
+            <span class="pay-pill">Shop Pay</span>
+            <span class="pay-pill">Visa</span>
+            <span class="pay-pill">Mastercard</span>
+            <span class="pay-pill">Amex</span>
+          </div>
         </div>
 
-        <div class="panel" style="padding:16px; margin-top:16px">
-          <h3 style="font-size:26px">Make checkout live</h3>
-          <p style="margin-top:8px">
-            Click below to start secure checkout. It will work after you add <code>/api/checkout</code> (Cloudflare Worker).
-          </p>
+        <!-- SUMMARY -->
+        <aside class="panel checkout-summary">
+          <h3 class="cart-summary-title">Order Summary</h3>
+          <div id="checkoutItems"></div>
 
-          <div class="btnrow" style="margin-top:14px">
-            <button class="btn primary" id="liveCheckout" type="button">Start secure checkout →</button>
-            <a class="btn" href="cart.html">Back to cart</a>
+          <div class="cart-summary-divider"></div>
+
+          <div class="cart-summary-row">
+            <span>Subtotal</span>
+            <strong id="subTotal">$0.00</strong>
+          </div>
+          <div class="cart-summary-row">
+            <span>Shipping</span>
+            <span class="muted">Calculated after launch</span>
+          </div>
+          <div class="cart-summary-row total">
+            <span>Total</span>
+            <strong id="grandTotal">$0.00</strong>
           </div>
 
-          <div class="error" id="err"></div>
-          <div class="notice" style="margin-top:10px">
-            Klarna is typically enabled through Stripe. Sezzle is added separately. We’ll wire both once your payment accounts are ready.
+          <div class="muted" style="margin-top:10px; font-size:12px;">
+            Pre-order / limited release items ship within 7–14 business days.
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
     <footer class="footer">
-  <div>© <span id="year">2026</span> Yaldah Issa — Excellence With Purpose</div>
-  <div>
-    <a href="policies/shipping.html">Shipping</a> •
-    <a href="policies/returns.html">Returns</a> •
-    <a href="policies/privacy.html">Privacy</a> •
-    <a href="policies/terms.html">Terms</a>
-    <span style="margin-left:10px">Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
-  </div>
-</footer>
-  </div>
+      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
+      <div class="footer-links">
+        <a href="policies/shipping.html">Shipping</a> •
+        <a href="policies/returns.html">Returns</a> •
+        <a href="policies/privacy.html">Privacy</a> •
+        <a href="policies/terms.html">Terms</a>
+        <span class="sep">|</span>
+        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
+      </div>
+    </footer>
+  </main>
 
   <script type="module">
-    import { getCart } from "./assets/cart.js";
-    import { setYear, setCartCount } from "./assets/app.js";
+    import { PRODUCTS } from "./assets/products.js";
+    import { getCart, clearCart } from "./assets/cart.js";
+    import { setYear, setCartCount, money } from "./assets/app.js";
 
     setYear(); setCartCount();
-    const err = document.getElementById("err");
 
-    document.getElementById("liveCheckout").addEventListener("click", async () => {
-      err.textContent = "";
+    const itemsEl = document.getElementById("checkoutItems");
+    const subTotalEl = document.getElementById("subTotal");
+    const grandTotalEl = document.getElementById("grandTotal");
+
+    function parseKey(key){
+      const [id, size] = key.split("::");
+      return { id, size };
+    }
+
+    function render(){
       const cart = getCart();
-      const items = Object.entries(cart).map(([key, qty]) => {
-        const [id, size] = key.split("::");
-        return { id, qty, size: size || null };
+      const keys = Object.keys(cart || {});
+      itemsEl.innerHTML = "";
+
+      let subtotalCents = 0;
+
+      keys.forEach(key => {
+        const qty = Number(cart[key] || 0);
+        if(qty <= 0) return;
+
+        const { id, size } = parseKey(key);
+        const p = PRODUCTS.find(x => x.id === id);
+        if(!p) return;
+
+        const line = p.price_cents * qty;
+        subtotalCents += line;
+
+        const row = document.createElement("div");
+        row.className = "checkout-item";
+        row.innerHTML = `
+          <div class="checkout-item-row">
+            <div>
+              <div class="checkout-item-name">${p.name}</div>
+              <div class="checkout-item-meta">${p.collection} • Size: ${size} • Qty: ${qty}</div>
+            </div>
+            <div class="checkout-item-price">${money(line)}</div>
+          </div>
+        `;
+        itemsEl.appendChild(row);
       });
 
-      if(items.length === 0) {
-        err.textContent = "Your cart is empty.";
-        return;
-      }
+      subTotalEl.textContent = money(subtotalCents);
+      grandTotalEl.textContent = money(subtotalCents);
+    }
 
-      try {
-        const res = await fetch("/api/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ items })
-        });
-        const data = await res.json();
-        if(!res.ok) throw new Error(data?.error || "Checkout is not connected yet.");
-        window.location.href = data.url;
-      } catch(e) {
-        err.textContent = e.message;
-      }
+    render();
+
+    // Preview submission
+    document.getElementById("checkoutForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Preview order placed ✔️ (Checkout gateway connects next)");
+      clearCart();
+      setCartCount();
+      window.location.href = "shop.html";
     });
   </script>
+
+  <!-- MENU SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const menuPanel = document.getElementById("menuPanel");
+    const menuBackdrop = document.getElementById("menuBackdrop");
+
+    function closeMenu(){
+      if(!menuBtn || !menuPanel || !menuBackdrop) return;
+      menuBtn.setAttribute("aria-expanded","false");
+      menuPanel.classList.remove("open");
+      menuBackdrop.classList.remove("open");
+      menuPanel.setAttribute("aria-hidden","true");
+    }
+
+    function openMenu(){
+      if(!menuBtn || !menuPanel || !menuBackdrop) return;
+      menuBtn.setAttribute("aria-expanded","true");
+      menuPanel.classList.add("open");
+      menuBackdrop.classList.add("open");
+      menuPanel.setAttribute("aria-hidden","false");
+    }
+
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    menuBackdrop?.addEventListener("click", closeMenu);
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+  </script>
+
 </body>
 </html>
+
