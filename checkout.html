@@ -1,247 +1,113 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Secure Checkout — Yaldah Issa</title>
-  <meta name="description" content="Secure checkout — Yaldah Issa." />
+/* CART + CHECKOUT LAYOUT */
+.cart-wrap, .checkout-wrap{
+  display:grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap:16px;
+  align-items:start;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+.cart-item{
+  display:grid;
+  grid-template-columns: 92px 1fr 140px;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(214,178,94,.18);
+}
+.cart-img img{
+  width:92px; height:92px; object-fit:cover; border-radius:14px;
+}
+.cart-name{
+  font-family:var(--font-display);
+  color:var(--brown-1);
+  letter-spacing:.04em;
+  font-size:18px;
+}
+.cart-meta{ margin-top:6px; font-size:12px; opacity:.78; letter-spacing:.06em; }
+.cart-actions{ margin-top:10px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
 
-  <link rel="stylesheet" href="assets/styles.css?v=20" />
-</head>
+.cart-qty span{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.75; margin-right:8px; }
+.cart-qty select{
+  height:38px;
+  border-radius:12px;
+  border:1px solid rgba(214,178,94,.28);
+  background:rgba(255,255,255,.70);
+  padding:0 10px;
+}
+.cart-remove{
+  border:none;
+  background:transparent;
+  color:#8a2f2f;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:11px;
+  cursor:pointer;
+}
+.cart-line{ text-align:right; }
+.cart-price{ font-size:12px; opacity:.7; letter-spacing:.12em; text-transform:uppercase; }
+.cart-line-total{ margin-top:6px; font-size:14px; letter-spacing:.10em; }
 
-<body>
-  <!-- HEADER -->
-  <header class="site-header" aria-label="Site header">
-    <div class="header-left">
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+.cart-summary-title{
+  font-family:var(--font-display);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brown-1);
+}
+.cart-summary-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+  font-size:14px;
+}
+.cart-summary-row.total{ margin-top:14px; font-size:16px; }
+.cart-summary-divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(214,178,94,.55), transparent);
+  margin:16px 0 6px;
+}
+.cart-checkout-btn{ width:100%; margin-top:16px; }
 
-    <div class="header-center">
-      <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
-        <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
-        <span class="brand-name">YALDAH ISSA</span>
-      </a>
-    </div>
+.pay-row{ margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
+.pay-pill{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(214,178,94,.30);
+  background:rgba(255,255,255,.20);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--brown-1);
+}
 
-    <div class="header-right">
-      <nav class="topnav" aria-label="Primary navigation">
-        <a class="navpill" href="index.html">Home</a>
-        <a class="navpill" href="shop.html">Shop</a>
-        <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-      </nav>
-    </div>
+.secure-line{
+  margin-top:10px;
+  font-size:12px;
+  letter-spacing:.06em;
+  opacity:.85;
+}
 
-    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
-      <a class="menu-item" href="shop.html?collection=Rich%20Aunty%20Sets">Rich Aunty Sets</a>
-      <a class="menu-item" href="shop.html?collection=Signature%20Dresses">Signature Dresses</a>
-      <a class="menu-item" href="shop.html?collection=Power%20Suits">Power Suits</a>
-    </div>
-    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-  </header>
+.muted{ opacity:.75; }
 
-  <main class="container">
-    <section class="section">
-      <div class="section-head">
-        <h2>Secure Checkout</h2>
-        <div class="note"><a class="navpill" href="cart.html">← Back to cart</a></div>
-      </div>
+/* CHECKOUT ITEMS */
+.checkout-title{
+  font-family:var(--font-display);
+  color:var(--brown-1);
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  margin-top:10px;
+}
+.checkout-form{ margin-top:14px; }
+.checkout-item{ padding:12px 0; border-bottom:1px solid rgba(214,178,94,.18); }
+.checkout-item-row{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+.checkout-item-name{ font-family:var(--font-display); color:var(--brown-1); font-size:16px; }
+.checkout-item-meta{ margin-top:6px; font-size:12px; opacity:.78; }
+.checkout-item-price{ letter-spacing:.10em; }
 
-      <div class="checkout-wrap">
-        <!-- FORM -->
-        <div class="panel checkout-panel">
-          <div class="stamp"><span class="dot"></span><span>Encrypted • Protected</span></div>
+/* MOBILE */
+@media(max-width:980px){
+  .cart-wrap, .checkout-wrap{ grid-template-columns:1fr; }
+  .cart-item{ grid-template-columns: 80px 1fr; }
+  .cart-line{ text-align:left; margin-top:10px; }
+}
 
-          <h3 class="checkout-title">Customer Details</h3>
-          <p class="muted" style="margin-top:8px;">This is a preview checkout. Payment gateway can be connected next.</p>
-
-          <form id="checkoutForm" class="checkout-form">
-            <div class="control">
-              <label for="name">Full name</label>
-              <input id="name" name="name" autocomplete="name" required />
-            </div>
-
-            <div class="control">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-
-            <div class="control">
-              <label for="address">Address</label>
-              <input id="address" name="address" autocomplete="street-address" required />
-            </div>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-              <div class="control">
-                <label for="city">City</label>
-                <input id="city" name="city" autocomplete="address-level2" required />
-              </div>
-
-              <div class="control">
-                <label for="zip">ZIP</label>
-                <input id="zip" name="zip" autocomplete="postal-code" required />
-              </div>
-            </div>
-
-            <button class="btn primary" type="submit" style="margin-top:14px; width:100%;">
-              Place Order (Preview) →
-            </button>
-
-            <div class="secure-line" style="margin-top:12px; text-align:center;">
-              🔒 Secure checkout • Encrypted payments • Protected purchase
-            </div>
-          </form>
-
-          <div class="pay-row" style="margin-top:14px;">
-            <span class="pay-pill">Klarna</span>
-            <span class="pay-pill">Sezzle</span>
-            <span class="pay-pill">Shop Pay</span>
-            <span class="pay-pill">Visa</span>
-            <span class="pay-pill">Mastercard</span>
-            <span class="pay-pill">Amex</span>
-          </div>
-        </div>
-
-        <!-- SUMMARY -->
-        <aside class="panel checkout-summary">
-          <h3 class="cart-summary-title">Order Summary</h3>
-          <div id="checkoutItems"></div>
-
-          <div class="cart-summary-divider"></div>
-
-          <div class="cart-summary-row">
-            <span>Subtotal</span>
-            <strong id="subTotal">$0.00</strong>
-          </div>
-          <div class="cart-summary-row">
-            <span>Shipping</span>
-            <span class="muted">Calculated after launch</span>
-          </div>
-          <div class="cart-summary-row total">
-            <span>Total</span>
-            <strong id="grandTotal">$0.00</strong>
-          </div>
-
-          <div class="muted" style="margin-top:10px; font-size:12px;">
-            Pre-order / limited release items ship within 7–14 business days.
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
-      <div class="footer-links">
-        <a href="policies/shipping.html">Shipping</a> •
-        <a href="policies/returns.html">Returns</a> •
-        <a href="policies/privacy.html">Privacy</a> •
-        <a href="policies/terms.html">Terms</a>
-        <span class="sep">|</span>
-        <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
-      </div>
-    </footer>
-  </main>
-
-  <script type="module">
-    import { PRODUCTS } from "./assets/products.js";
-    import { getCart, clearCart } from "./assets/cart.js";
-    import { setYear, setCartCount, money } from "./assets/app.js";
-
-    setYear(); setCartCount();
-
-    const itemsEl = document.getElementById("checkoutItems");
-    const subTotalEl = document.getElementById("subTotal");
-    const grandTotalEl = document.getElementById("grandTotal");
-
-    function parseKey(key){
-      const [id, size] = key.split("::");
-      return { id, size };
-    }
-
-    function render(){
-      const cart = getCart();
-      const keys = Object.keys(cart || {});
-      itemsEl.innerHTML = "";
-
-      let subtotalCents = 0;
-
-      keys.forEach(key => {
-        const qty = Number(cart[key] || 0);
-        if(qty <= 0) return;
-
-        const { id, size } = parseKey(key);
-        const p = PRODUCTS.find(x => x.id === id);
-        if(!p) return;
-
-        const line = p.price_cents * qty;
-        subtotalCents += line;
-
-        const row = document.createElement("div");
-        row.className = "checkout-item";
-        row.innerHTML = `
-          <div class="checkout-item-row">
-            <div>
-              <div class="checkout-item-name">${p.name}</div>
-              <div class="checkout-item-meta">${p.collection} • Size: ${size} • Qty: ${qty}</div>
-            </div>
-            <div class="checkout-item-price">${money(line)}</div>
-          </div>
-        `;
-        itemsEl.appendChild(row);
-      });
-
-      subTotalEl.textContent = money(subtotalCents);
-      grandTotalEl.textContent = money(subtotalCents);
-    }
-
-    render();
-
-    // Preview submission
-    document.getElementById("checkoutForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Preview order placed ✔️ (Checkout gateway connects next)");
-      clearCart();
-      setCartCount();
-      window.location.href = "shop.html";
-    });
-  </script>
-
-  <!-- MENU SCRIPT -->
-  <script>
-    const menuBtn = document.getElementById("menuBtn");
-    const menuPanel = document.getElementById("menuPanel");
-    const menuBackdrop = document.getElementById("menuBackdrop");
-
-    function closeMenu(){
-      if(!menuBtn || !menuPanel || !menuBackdrop) return;
-      menuBtn.setAttribute("aria-expanded","false");
-      menuPanel.classList.remove("open");
-      menuBackdrop.classList.remove("open");
-      menuPanel.setAttribute("aria-hidden","true");
-    }
-
-    function openMenu(){
-      if(!menuBtn || !menuPanel || !menuBackdrop) return;
-      menuBtn.setAttribute("aria-expanded","true");
-      menuPanel.classList.add("open");
-      menuBackdrop.classList.add("open");
-      menuPanel.setAttribute("aria-hidden","false");
-    }
-
-    menuBtn?.addEventListener("click", () => {
-      const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
-      isOpen ? closeMenu() : openMenu();
-    });
-
-    menuBackdrop?.addEventListener("click", closeMenu);
-    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
-  </script>
-
-</body>
-</html>
 
