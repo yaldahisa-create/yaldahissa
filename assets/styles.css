@@ -882,6 +882,11 @@ body{
   .shop-top{ flex-direction:column; align-items:flex-start; }
   .shop-meta{ justify-content:flex-start; }
 }
+.badge{
+  border:1px solid rgba(214,178,94,.35);
+  background:rgba(255,255,255,.10);
+  color:rgba(255,255,255,.92);
+}
 
 
 
