@@ -18,49 +18,63 @@
   <!-- Luxury cursor glow (desktop only) -->
   <div class="lux-cursor" aria-hidden="true"></div>
 
-  <!-- HEADER -->
-  <header class="site-header" aria-label="Site header">
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
-      <span></span><span></span><span></span>
-    </button>
+ <!-- HEADER -->
+<header class="site-header" aria-label="Site header">
 
-    <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
-      <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
-      <span class="brand-name">YALDAH ISSA</span>
-    </a>
+  <!-- LEFT: Menu Button -->
+  <button class="menu-btn" id="menuBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="menuPanel">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-    <!-- Desktop nav -->
-    <nav class="topnav" aria-label="Primary navigation">
-      <a class="navpill" href="index.html">Home</a>
-      <a class="navpill" href="shop.html">Shop</a>
-      <a class="navpill" href="about.html">About</a>
-      <a class="navpill" href="contact.html">Contact</a>
+  <!-- CENTER: Logo -->
+  <a class="brandmark" href="index.html" aria-label="Yaldah Issa Home">
+    <img src="assets/IMG_2654.jpeg" alt="Yaldah Issa Logo" class="brand-logo">
+    <span class="brand-name">YALDAH ISSA</span>
+  </a>
 
-      <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
-        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
-        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
-      </form>
+  <!-- RIGHT: Cart Icon -->
+  <a class="icon-btn" href="cart.html" aria-label="Cart">
+    🛍️ <span class="cart-mini">(<span id="cartCount">0</span>)</span>
+  </a>
 
-      <a class="navpill" href="cart.html">Cart (<span id="cartCount">0</span>)</a>
-      <a class="navpill" href="login.html">Login</a>
-    </nav>
+  <!-- DESKTOP NAV (Second Row) -->
+  <nav class="topnav" aria-label="Primary navigation">
+    <a class="navpill" href="index.html">Home</a>
+    <a class="navpill" href="shop.html">Shop</a>
+    <a class="navpill" href="about.html">About</a>
+    <a class="navpill" href="contact.html">Contact</a>
 
-    <!-- Mobile menu -->
-    <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
-      <a class="menu-item" href="index.html">Home</a>
-      <a class="menu-item" href="shop.html">Shop</a>
-      <a class="menu-item" href="about.html">About</a>
-      <a class="menu-item" href="contact.html">Contact</a>
-      <a class="menu-item" href="cart.html">Cart</a>
-      <a class="menu-item" href="login.html">Login</a>
+    <form class="navsearch" action="shop.html" method="get" role="search">
+      <input class="navsearch-input" name="q" placeholder="Search">
+      <button class="navsearch-btn" type="submit">Search</button>
+    </form>
 
-      <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
-        <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products" />
-        <button class="navsearch-btn" type="submit" aria-label="Search">Search</button>
-      </form>
-    </div>
-    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-  </header>
+    <a class="navpill" href="login.html">Login</a>
+  </nav>
+
+  <!-- MOBILE MENU PANEL -->
+  <div class="menu-panel" id="menuPanel" role="dialog" aria-hidden="true">
+    <a class="menu-item" href="index.html">Home</a>
+    <a class="menu-item" href="shop.html">Shop</a>
+    <a class="menu-item" href="about.html">About</a>
+    <a class="menu-item" href="contact.html">Contact</a>
+    <a class="menu-item" href="cart.html">Cart</a>
+    <a class="menu-item" href="login.html">Login</a>
+
+    <form class="navsearch navsearch-mobile" action="shop.html" method="get">
+      <input class="navsearch-input" name="q" placeholder="Search">
+      <button class="navsearch-btn" type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+</header>
+
 
   <!-- HERO (FULLSCREEN VIDEO) -->
   <section class="hero hero-full" aria-label="Hero">
