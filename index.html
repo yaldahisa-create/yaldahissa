@@ -11,11 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ==================================================
-       YALDAH ISSA — FULL SINGLE FILE
-       Jacquemus × LV inspired luxury homepage
-       ================================================== */
-
     :root{
       --cream-1:#F6F1E6;
       --cream-2:#EFE6D6;
@@ -48,7 +43,7 @@
     }
 
     a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
+    img, video{ max-width:100%; display:block; }
     button, input, select{ font:inherit; }
 
     .container{
@@ -56,9 +51,6 @@
       margin:0 auto;
     }
 
-    /* ==================================================
-       LUXURY CURSOR
-       ================================================== */
     .lux-cursor{
       position:fixed;
       width:220px;
@@ -73,9 +65,7 @@
       mix-blend-mode:screen;
     }
 
-    /* ==================================================
-       HEADER
-       ================================================== */
+    /* HEADER */
     .site-header{
       position:sticky;
       top:0;
@@ -209,17 +199,11 @@
       font-size:11px;
       letter-spacing:.22em;
       text-transform:uppercase;
-      padding:0;
-      border:none;
-      border-radius:0;
-      background:transparent;
-      transition:.2s ease;
       position:relative;
     }
 
     .navpill:hover{
       color:var(--gold-1);
-      transform:none;
     }
 
     .navpill::after{
@@ -264,12 +248,6 @@
       font-size:10px;
     }
 
-    .navsearch-input:focus{
-      background:rgba(255,255,255,.08);
-      border-color:rgba(214,178,94,.45);
-      box-shadow:none;
-    }
-
     .navsearch-btn{
       height:34px;
       padding:0 12px;
@@ -303,9 +281,7 @@
       z-index:120;
     }
 
-    .menu-panel.open{
-      display:block;
-    }
+    .menu-panel.open{ display:block; }
 
     .menu-item{
       display:block;
@@ -343,13 +319,9 @@
       z-index:110;
     }
 
-    .menu-backdrop.open{
-      display:block;
-    }
+    .menu-backdrop.open{ display:block; }
 
-    /* ==================================================
-       HERO
-       ================================================== */
+    /* HERO */
     .hero-full-media{
       position:relative;
       width:100vw;
@@ -358,8 +330,7 @@
       overflow:hidden;
     }
 
-    .hero-video,
-    .hero-img{
+    .hero-video{
       position:absolute;
       inset:0;
       width:100%;
@@ -388,8 +359,16 @@
       font-family:var(--font-display);
       font-size:66px;
       letter-spacing:.03em;
-      margin-bottom:26px;
+      margin-bottom:16px;
       text-shadow:0 14px 55px rgba(0,0,0,.55);
+    }
+
+    .hero-sub{
+      max-width:620px;
+      margin:0 auto 24px;
+      line-height:1.7;
+      font-size:15px;
+      opacity:.92;
     }
 
     .btnrow{
@@ -422,17 +401,15 @@
       color:var(--brown-1);
     }
 
-    /* ==================================================
-       SECTIONS
-       ================================================== */
-    .section{ padding:56px 0; }
+    /* GENERAL */
+    .section{ padding:64px 0; }
 
     .section-head{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
       gap:14px;
-      margin-bottom:16px;
+      margin-bottom:18px;
     }
 
     .section-head h2{
@@ -453,7 +430,7 @@
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
+      gap:18px;
     }
 
     .card{
@@ -474,25 +451,6 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      filter:contrast(1.12) saturate(1.14);
-    }
-
-    .media-suits{
-      background:
-        radial-gradient(circle at 26% 22%, rgba(255,255,255,.92), transparent 58%),
-        linear-gradient(135deg, #8F6C54 0%, #F6E9DD 100%);
-    }
-
-    .media-dresses{
-      background:
-        radial-gradient(circle at 72% 26%, rgba(255,255,255,.90), transparent 58%),
-        linear-gradient(135deg, #9E7466 0%, #F8EEE6 100%);
-    }
-
-    .media-sets{
-      background:
-        radial-gradient(circle at 42% 62%, rgba(255,255,255,.90), transparent 60%),
-        linear-gradient(135deg, #7F5C43 0%, #F4E6D8 100%);
     }
 
     .card-body{ padding:18px; }
@@ -507,8 +465,160 @@
 
     .card-body p{
       opacity:.78;
-      line-height:1.5;
+      line-height:1.6;
       font-size:14px;
+    }
+
+    /* FEATURED */
+    .feature-img{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .feature-price{
+      margin-top:8px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.8;
+    }
+
+    /* COLLECTIONS */
+    .collections-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .collection-card{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow-2);
+      transition:transform .3s ease;
+      min-height:420px;
+    }
+
+    .collection-card:hover{
+      transform:translateY(-4px);
+    }
+
+    .collection-img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .collection-overlay{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:28px;
+      background:linear-gradient(transparent, rgba(0,0,0,.58));
+      color:white;
+    }
+
+    .collection-overlay h3{
+      font-family:var(--font-display);
+      font-size:28px;
+      letter-spacing:.08em;
+      margin-bottom:6px;
+    }
+
+    .collection-overlay p{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.92;
+    }
+
+    /* THE STANDARD */
+    .editorial-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .editorial-card{
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    /* LOOKBOOK */
+    .lookbook-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .lookbook-card{
+      border-radius:18px;
+      overflow:hidden;
+      background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(239,230,214,.66));
+      box-shadow:var(--shadow-2);
+      transition:.2s ease;
+    }
+
+    .lookbook-card:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-1);
+    }
+
+    .lookbook-img{
+      width:100%;
+      height:520px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .lookbook-copy{
+      padding:20px;
+    }
+
+    .lookbook-copy h3{
+      font-family:var(--font-display);
+      font-size:24px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--brown-1);
+      margin-bottom:8px;
+    }
+
+    .lookbook-copy p{
+      font-size:14px;
+      line-height:1.7;
+      opacity:.8;
+    }
+
+    /* ABOUT */
+    .about-brand-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      align-items:center;
+    }
+
+    .about-brand-image{
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow-2);
+    }
+
+    .about-brand-img{
+      width:100%;
+      height:100%;
+      min-height:420px;
+      object-fit:cover;
+      display:block;
     }
 
     .panel{
@@ -516,15 +626,16 @@
       background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(239,230,214,.72));
       box-shadow:var(--shadow-2);
       border:1px solid rgba(214,178,94,.18);
-      padding:18px;
+      padding:24px;
     }
 
+    .msg{ opacity:.85; line-height:1.8; }
+
+    /* JOIN */
     .subscribe{
       max-width:760px;
       margin-inline:auto;
     }
-
-    .msg{ opacity:.85; line-height:1.7; }
 
     .subgrid{
       display:flex;
@@ -561,9 +672,7 @@
     .ok{ color:#0f6b2d; }
     .bad{ color:#9b1c1c; }
 
-    /* ==================================================
-       FOOTER
-       ================================================== */
+    /* FOOTER */
     .footer{
       padding:30px 0 60px;
       border-top:1px solid rgba(214,178,94,.22);
@@ -615,11 +724,18 @@
       opacity:.6;
     }
 
-    /* ==================================================
-       RESPONSIVE
-       ================================================== */
     @media (max-width:980px){
-      .grid{ grid-template-columns:1fr; }
+      .grid,
+      .collections-grid,
+      .editorial-grid,
+      .lookbook-grid,
+      .about-brand-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .collection-img{ height:320px; }
+      .lookbook-img{ height:360px; }
+      .about-brand-img{ min-height:300px; }
     }
 
     @media (max-width:900px){
@@ -628,18 +744,14 @@
         padding:12px 16px;
       }
 
-      .brandmark{
-        justify-self:center;
-      }
+      .brandmark{ justify-self:center; }
 
       .brand-name{
         font-size:13px;
         letter-spacing:.20em;
       }
 
-      .topnav{
-        display:none;
-      }
+      .topnav{ display:none; }
 
       .menu-panel{
         left:4vw;
@@ -648,17 +760,13 @@
         top:72px;
       }
 
-      .header-icons{
-        gap:8px;
-      }
-
-      .cart-mini{
-        display:none;
-      }
+      .header-icons{ gap:8px; }
+      .cart-mini{ display:none; }
     }
 
     @media (max-width:768px){
       .hero-title{ font-size:44px; }
+      .hero-sub{ font-size:14px; }
       .subgrid{ flex-direction:column; }
       .subgrid input,
       .subgrid button{ width:100%; }
@@ -700,26 +808,28 @@
     </div>
 
     <nav class="topnav" aria-label="Primary navigation">
-      <a class="navpill" href="index.html">Home</a>
-      <a class="navpill" href="shop.html">Shop</a>
-      <a class="navpill" href="about.html">About</a>
-      <a class="navpill" href="contact.html">Contact</a>
+      <a class="navpill" href="#featured-pieces">Featured</a>
+      <a class="navpill" href="#collections">Collections</a>
+      <a class="navpill" href="#editorial">The Standard</a>
+      <a class="navpill" href="#lookbook">Lookbook</a>
+      <a class="navpill" href="#about-brand">About</a>
 
-      <form class="navsearch" action="shop.html" method="get" role="search" aria-label="Search">
+      <form class="navsearch" action="#featured-pieces" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products">
         <button class="navsearch-btn" type="submit">Search</button>
       </form>
     </nav>
 
     <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
-      <a class="menu-item" href="index.html">Home</a>
-      <a class="menu-item" href="shop.html">Shop</a>
-      <a class="menu-item" href="about.html">About</a>
-      <a class="menu-item" href="contact.html">Contact</a>
+      <a class="menu-item" href="#featured-pieces">Featured</a>
+      <a class="menu-item" href="#collections">Collections</a>
+      <a class="menu-item" href="#editorial">The Standard</a>
+      <a class="menu-item" href="#lookbook">Lookbook</a>
+      <a class="menu-item" href="#about-brand">About</a>
       <a class="menu-item" href="login.html">Login</a>
       <a class="menu-item" href="cart.html">Cart</a>
 
-      <form class="navsearch navsearch-mobile" action="shop.html" method="get" role="search" aria-label="Search">
+      <form class="navsearch navsearch-mobile" action="#featured-pieces" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products">
         <button class="navsearch-btn" type="submit">Search</button>
       </form>
@@ -737,10 +847,11 @@
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-text hero-on-video">
-        <h1 class="hero-title">Excellence<br/>With Purpose</h1>
+        <h1 class="hero-title">Excellence<br>With Purpose</h1>
+        <p class="hero-sub">Tailored elegance for women who lead with intention, grace, and quiet luxury.</p>
 
         <div class="btnrow">
-          <a class="btn primary" href="shop.html">Shop Preview</a>
+          <a class="btn primary" href="#featured-pieces">Featured Pieces</a>
           <a class="btn" href="#collections">Explore Collections</a>
         </div>
       </div>
@@ -748,78 +859,175 @@
   </section>
 
   <div class="container">
-    <section class="section" id="collections">
+    <!-- FEATURED PIECES -->
+    <section class="section" id="featured-pieces">
+      <div class="section-head">
+        <h2>Featured Pieces</h2>
+        <div class="note">Six signature looks</div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img src="assets/feature1.jpg" alt="Featured piece 1" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece I</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/feature2.jpg" alt="Featured piece 2" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece II</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/feature3.jpg" alt="Featured piece 3" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece III</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/feature4.jpg" alt="Featured piece 4" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece IV</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/feature5.jpg" alt="Featured piece 5" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece V</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/feature6.jpg" alt="Featured piece 6" class="feature-img">
+          <div class="card-body">
+            <h3 class="card-title">Featured Piece VI</h3>
+            <p class="feature-price">Yaldah Issa selection</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section class="section collections-section" id="collections">
       <div class="section-head">
         <h2>Collections</h2>
-        <div class="note">Preview only • no designs shown</div>
+        <div class="note">Signature categories</div>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card-media media-suits"></div>
-          <div class="card-body">
-            <h3 class="card-title">Power Suits</h3>
-            <p>Tailored confidence. CEO energy. Elevated finishing.</p>
-            <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Power%20Suits">Shop →</a>
-            </div>
+      <div class="collections-grid">
+        <a href="shop.html?collection=Power%20Suits" class="collection-card">
+          <img src="assets/collection-suits.jpg" class="collection-img" alt="Power suits collection">
+          <div class="collection-overlay">
+            <h3>Power Suits</h3>
+            <p>Tailored authority</p>
           </div>
-        </article>
+        </a>
 
-        <article class="card">
-          <div class="card-media media-dresses"></div>
-          <div class="card-body">
-            <h3 class="card-title">Signature Dresses</h3>
-            <p>Timeless elegance. Structured softness. Statement presence.</p>
-            <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Signature%20Dresses">Shop →</a>
-            </div>
+        <a href="shop.html?collection=Signature%20Dresses" class="collection-card">
+          <img src="assets/collection-dresses.jpg" class="collection-img" alt="Signature dresses collection">
+          <div class="collection-overlay">
+            <h3>Signature Dresses</h3>
+            <p>Elegant silhouettes</p>
           </div>
-        </article>
+        </a>
 
-        <article class="card">
-          <div class="card-media media-sets"></div>
-          <div class="card-body">
-            <h3 class="card-title">Rich Aunty Sets</h3>
-            <p>Soft luxury. Quiet power. “She has arrived.”</p>
-            <div class="btnrow" style="margin-top:14px">
-              <a class="btn primary" href="shop.html?collection=Rich%20Aunty%20Sets">Shop →</a>
-            </div>
+        <a href="shop.html?collection=Rich%20Aunty%20Sets" class="collection-card">
+          <img src="assets/collection-rich.jpg" class="collection-img" alt="Rich aunty sets collection">
+          <div class="collection-overlay">
+            <h3>Rich Aunty Sets</h3>
+            <p>Quiet luxury</p>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
-    <section class="section">
+    <!-- THE STANDARD -->
+    <section class="section editorial-section" id="editorial">
       <div class="section-head">
         <h2>The Standard</h2>
-        <div class="note">Minimal • refined • intentional</div>
+        <div class="note">Craft • Tailoring • Fabric</div>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="card-body">
-            <h3 class="card-title">Tailoring</h3>
-            <p>Clean structure, premium finishing, and a silhouette that holds power.</p>
+      <div class="editorial-grid">
+        <article class="editorial-card panel">
+          <h3 class="card-title">Tailoring</h3>
+          <p class="msg">Clean structure, strong lines, and silhouettes designed to hold presence.</p>
+        </article>
+
+        <article class="editorial-card panel">
+          <h3 class="card-title">Fabric</h3>
+          <p class="msg">Luxury materials selected for elegance, comfort, polish, and longevity.</p>
+        </article>
+
+        <article class="editorial-card panel">
+          <h3 class="card-title">Purpose</h3>
+          <p class="msg">Yaldah Issa is created for women who move with confidence, grace, and intention.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="section lookbook-section" id="lookbook">
+      <div class="section-head">
+        <h2>Lookbook</h2>
+        <div class="note">Editorial moments</div>
+      </div>
+
+      <div class="lookbook-grid">
+        <article class="lookbook-card">
+          <img src="assets/lookbook1.jpg" alt="Yaldah Issa editorial look one" class="lookbook-img">
+          <div class="lookbook-copy">
+            <h3>Power in Presence</h3>
+            <p>Tailored silhouettes for women who lead with quiet authority.</p>
           </div>
         </article>
 
-        <article class="card">
-          <div class="card-body">
-            <h3 class="card-title">Fabric</h3>
-            <p>Luxury materials chosen for polish, comfort, and longevity.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-body">
-            <h3 class="card-title">Purpose</h3>
-            <p>Excellence with purpose — style that aligns with your calling.</p>
+        <article class="lookbook-card">
+          <img src="assets/lookbook2.jpg" alt="Yaldah Issa editorial look two" class="lookbook-img">
+          <div class="lookbook-copy">
+            <h3>Elegance in Motion</h3>
+            <p>Soft structure, refined femininity, and timeless luxury.</p>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- ABOUT THE BRAND -->
+    <section class="section" id="about-brand">
+      <div class="section-head">
+        <h2>About the Brand</h2>
+        <div class="note">The Yaldah Issa standard</div>
+      </div>
+
+      <div class="about-brand-wrap">
+        <div class="about-brand-image">
+          <img src="assets/about.jpg" alt="Yaldah Issa brand image" class="about-brand-img">
+        </div>
+
+        <div class="panel">
+          <p class="msg">
+            Yaldah Issa creates refined garments for women who walk in confidence, grace, and purpose.
+            Every piece is designed to embody quiet luxury, precise tailoring, and timeless sophistication.
+          </p>
+
+          <div class="btnrow" style="justify-content:flex-start; margin-top:20px;">
+            <a class="btn primary" href="#join">Join the List</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN LIST -->
     <section class="section" id="join">
       <div class="section-head">
         <h2>Join the List</h2>
@@ -842,10 +1050,10 @@
     <footer class="footer">
       <div>© <span id="year"></span> Yaldah Issa — Excellence With Purpose</div>
       <div class="footer-links">
-        <a href="policies/shipping.html">Shipping</a> •
-        <a href="policies/returns.html">Returns</a> •
-        <a href="policies/privacy.html">Privacy</a> •
-        <a href="policies/terms.html">Terms</a>
+        <a href="#">Shipping</a> •
+        <a href="#">Returns</a> •
+        <a href="#">Privacy</a> •
+        <a href="#">Terms</a>
         <span class="sep">|</span>
         <span>Contact: <a href="mailto:yaldahisa@gmail.com">yaldahisa@gmail.com</a></span>
       </div>
@@ -853,10 +1061,8 @@
   </div>
 
   <script>
-    // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // cart count
     function setCartCount(){
       try{
         const cart = JSON.parse(localStorage.getItem("yi_cart_v1")) || {};
@@ -870,38 +1076,34 @@
     }
     setCartCount();
 
-    // mobile menu
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuBtn = document.getElementById("menuBtn");
-      const menuPanel = document.getElementById("menuPanel");
-      const menuBackdrop = document.getElementById("menuBackdrop");
+    const menuBtn = document.getElementById("menuBtn");
+    const menuPanel = document.getElementById("menuPanel");
+    const menuBackdrop = document.getElementById("menuBackdrop");
 
+    function closeMenu(){
       if(!menuBtn || !menuPanel || !menuBackdrop) return;
+      menuBtn.setAttribute("aria-expanded","false");
+      menuPanel.classList.remove("open");
+      menuBackdrop.classList.remove("open");
+      menuPanel.setAttribute("aria-hidden","true");
+    }
 
-      function closeMenu(){
-        menuBtn.setAttribute("aria-expanded","false");
-        menuPanel.classList.remove("open");
-        menuBackdrop.classList.remove("open");
-        menuPanel.setAttribute("aria-hidden","true");
-      }
+    function openMenu(){
+      if(!menuBtn || !menuPanel || !menuBackdrop) return;
+      menuBtn.setAttribute("aria-expanded","true");
+      menuPanel.classList.add("open");
+      menuBackdrop.classList.add("open");
+      menuPanel.setAttribute("aria-hidden","false");
+    }
 
-      function openMenu(){
-        menuBtn.setAttribute("aria-expanded","true");
-        menuPanel.classList.add("open");
-        menuBackdrop.classList.add("open");
-        menuPanel.setAttribute("aria-hidden","false");
-      }
-
-      menuBtn.addEventListener("click", () => {
-        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
-        isOpen ? closeMenu() : openMenu();
-      });
-
-      menuBackdrop.addEventListener("click", closeMenu);
-      window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+    menuBtn?.addEventListener("click", () => {
+      const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
     });
 
-    // luxury cursor glow
+    menuBackdrop?.addEventListener("click", closeMenu);
+    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeMenu(); });
+
     const lux = document.querySelector(".lux-cursor");
     if (lux && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
       window.addEventListener("mousemove", (e) => {
@@ -910,8 +1112,6 @@
       });
     }
 
-    // join list local save
-    const SUBSCRIBE_ENDPOINT = "";
     const form = document.getElementById("subscribeForm");
     const status = document.getElementById("subStatus");
 
@@ -921,42 +1121,22 @@
     }
 
     if(form){
-      form.addEventListener("submit", async (e) => {
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
+        const email = document.getElementById("subEmail")?.value?.trim() || "";
 
-        const payload = {
-          email: document.getElementById("subEmail")?.value?.trim() || ""
-        };
-
-        if(!payload.email){
+        if(!email){
           setStatus("Please enter your email.", "bad");
           return;
         }
 
-        if(!SUBSCRIBE_ENDPOINT){
-          setStatus("You’re on the list ✔️", "ok");
-          try{
-            const existing = JSON.parse(localStorage.getItem("yi_vip_local") || "[]");
-            existing.push({ ...payload, at: new Date().toISOString() });
-            localStorage.setItem("yi_vip_local", JSON.stringify(existing));
-          }catch{}
-          form.reset();
-          return;
-        }
-
+        setStatus("You’re on the list ✔️", "ok");
         try{
-          setStatus("Submitting…", "msg");
-          const res = await fetch(SUBSCRIBE_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type":"application/json", "Accept":"application/json" },
-            body: JSON.stringify(payload)
-          });
-          if(!res.ok) throw new Error("Could not submit. Please try again.");
-          setStatus("Welcome to Yaldah Issa ✔️", "ok");
-          form.reset();
-        } catch(err){
-          setStatus(err.message || "Something went wrong.", "bad");
-        }
+          const existing = JSON.parse(localStorage.getItem("yi_vip_local") || "[]");
+          existing.push({ email, at: new Date().toISOString() });
+          localStorage.setItem("yi_vip_local", JSON.stringify(existing));
+        }catch{}
+        form.reset();
       });
     }
   </script>
