@@ -321,27 +321,29 @@
 
     .menu-backdrop.open{ display:block; }
 
-    /* HERO */
+    /* HERO IMAGE */
     .hero-full-media{
       position:relative;
       width:100vw;
       height:100vh;
       margin-left:calc(50% - 50vw);
       overflow:hidden;
+      background:#e9ddca;
     }
 
-    .hero-video{
+    .hero-img{
       position:absolute;
       inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
     }
 
     .hero-overlay{
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.15) 40%,rgba(246,241,230,.20));
+      background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,.10) 40%,rgba(246,241,230,.18));
     }
 
     .hero-on-video{
@@ -353,6 +355,7 @@
       color:#fff;
       width:min(900px,92vw);
       padding:0 10px;
+      z-index:2;
     }
 
     .hero-title{
@@ -446,13 +449,6 @@
       box-shadow:var(--shadow-1);
     }
 
-    .card-media{
-      height:220px;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-    }
-
     .card-body{ padding:18px; }
 
     .card-title{
@@ -469,23 +465,7 @@
       font-size:14px;
     }
 
-    /* FEATURED */
-    .feature-img{
-      width:100%;
-      height:340px;
-      object-fit:cover;
-      display:block;
-    }
-
-    .feature-price{
-      margin-top:8px;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.8;
-    }
-
-    /* COLLECTIONS */
+    /* COLLECTIONS FIRST */
     .collections-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -499,7 +479,8 @@
       overflow:hidden;
       box-shadow:var(--shadow-2);
       transition:transform .3s ease;
-      min-height:420px;
+      min-height:460px;
+      background:#efe6d6;
     }
 
     .collection-card:hover{
@@ -508,9 +489,12 @@
 
     .collection-img{
       width:100%;
-      height:420px;
-      object-fit:cover;
+      height:460px;
+      object-fit:contain;
+      object-position:center;
       display:block;
+      background:#efe6d6;
+      padding:10px;
     }
 
     .collection-overlay{
@@ -519,7 +503,7 @@
       left:0;
       right:0;
       padding:28px;
-      background:linear-gradient(transparent, rgba(0,0,0,.58));
+      background:linear-gradient(transparent, rgba(0,0,0,.48));
       color:white;
     }
 
@@ -535,6 +519,25 @@
       letter-spacing:.18em;
       text-transform:uppercase;
       opacity:.92;
+    }
+
+    /* FEATURED FULL IMAGE */
+    .feature-img{
+      width:100%;
+      height:420px;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      background:#efe6d6;
+      padding:10px;
+    }
+
+    .feature-price{
+      margin-top:8px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.8;
     }
 
     /* THE STANDARD */
@@ -576,8 +579,11 @@
     .lookbook-img{
       width:100%;
       height:520px;
-      object-fit:cover;
+      object-fit:contain;
+      object-position:center;
       display:block;
+      background:#efe6d6;
+      padding:10px;
     }
 
     .lookbook-copy{
@@ -611,14 +617,17 @@
       border-radius:18px;
       overflow:hidden;
       box-shadow:var(--shadow-2);
+      background:#efe6d6;
     }
 
     .about-brand-img{
       width:100%;
-      height:100%;
-      min-height:420px;
-      object-fit:cover;
+      height:420px;
+      object-fit:contain;
+      object-position:center;
       display:block;
+      background:#efe6d6;
+      padding:10px;
     }
 
     .panel{
@@ -733,9 +742,10 @@
         grid-template-columns:1fr;
       }
 
-      .collection-img{ height:320px; }
-      .lookbook-img{ height:360px; }
-      .about-brand-img{ min-height:300px; }
+      .collection-img{ height:340px; }
+      .feature-img{ height:320px; }
+      .lookbook-img{ height:340px; }
+      .about-brand-img{ height:320px; }
     }
 
     @media (max-width:900px){
@@ -808,28 +818,28 @@
     </div>
 
     <nav class="topnav" aria-label="Primary navigation">
-      <a class="navpill" href="#featured-pieces">Featured</a>
       <a class="navpill" href="#collections">Collections</a>
+      <a class="navpill" href="#featured-pieces">Featured</a>
       <a class="navpill" href="#editorial">The Standard</a>
       <a class="navpill" href="#lookbook">Lookbook</a>
       <a class="navpill" href="#about-brand">About</a>
 
-      <form class="navsearch" action="#featured-pieces" method="get" role="search" aria-label="Search">
+      <form class="navsearch" action="#collections" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products">
         <button class="navsearch-btn" type="submit">Search</button>
       </form>
     </nav>
 
     <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
-      <a class="menu-item" href="#featured-pieces">Featured</a>
       <a class="menu-item" href="#collections">Collections</a>
+      <a class="menu-item" href="#featured-pieces">Featured</a>
       <a class="menu-item" href="#editorial">The Standard</a>
       <a class="menu-item" href="#lookbook">Lookbook</a>
       <a class="menu-item" href="#about-brand">About</a>
       <a class="menu-item" href="login.html">Login</a>
       <a class="menu-item" href="cart.html">Cart</a>
 
-      <form class="navsearch navsearch-mobile" action="#featured-pieces" method="get" role="search" aria-label="Search">
+      <form class="navsearch navsearch-mobile" action="#collections" method="get" role="search" aria-label="Search">
         <input class="navsearch-input" name="q" placeholder="Search" aria-label="Search products">
         <button class="navsearch-btn" type="submit">Search</button>
       </form>
@@ -838,11 +848,10 @@
     <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
   </header>
 
+  <!-- HERO IMAGE -->
   <section class="hero hero-full" aria-label="Hero">
-    <div class="hero-media hero-full-media" aria-label="Brand teaser video">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-        <source src="assets/teaser.mp4" type="video/mp4" />
-      </video>
+    <div class="hero-media hero-full-media" aria-label="Brand hero image">
+      <img src="assets/hero.jpg" alt="Yaldah Issa luxury campaign" class="hero-img">
 
       <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -851,14 +860,48 @@
         <p class="hero-sub">Tailored elegance for women who lead with intention, grace, and quiet luxury.</p>
 
         <div class="btnrow">
-          <a class="btn primary" href="#featured-pieces">Featured Pieces</a>
-          <a class="btn" href="#collections">Explore Collections</a>
+          <a class="btn primary" href="#collections">Explore Collections</a>
+          <a class="btn" href="#featured-pieces">Featured Pieces</a>
         </div>
       </div>
     </div>
   </section>
 
   <div class="container">
+    <!-- COLLECTIONS -->
+    <section class="section collections-section" id="collections">
+      <div class="section-head">
+        <h2>Collections</h2>
+        <div class="note">Signature categories</div>
+      </div>
+
+      <div class="collections-grid">
+        <a href="shop.html?collection=Power%20Suits" class="collection-card">
+          <img src="assets/collection-suits.jpg" class="collection-img" alt="Power suits collection">
+          <div class="collection-overlay">
+            <h3>Power Suits</h3>
+            <p>Tailored authority</p>
+          </div>
+        </a>
+
+        <a href="shop.html?collection=Signature%20Dresses" class="collection-card">
+          <img src="assets/collection-dresses.jpg" class="collection-img" alt="Signature dresses collection">
+          <div class="collection-overlay">
+            <h3>Signature Dresses</h3>
+            <p>Elegant silhouettes</p>
+          </div>
+        </a>
+
+        <a href="shop.html?collection=Rich%20Aunty%20Sets" class="collection-card">
+          <img src="assets/collection-rich.jpg" class="collection-img" alt="Rich aunty sets collection">
+          <div class="collection-overlay">
+            <h3>Rich Aunty Sets</h3>
+            <p>Quiet luxury</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- FEATURED PIECES -->
     <section class="section" id="featured-pieces">
       <div class="section-head">
@@ -914,40 +957,6 @@
             <p class="feature-price">Yaldah Issa selection</p>
           </div>
         </article>
-      </div>
-    </section>
-
-    <!-- COLLECTIONS -->
-    <section class="section collections-section" id="collections">
-      <div class="section-head">
-        <h2>Collections</h2>
-        <div class="note">Signature categories</div>
-      </div>
-
-      <div class="collections-grid">
-        <a href="shop.html?collection=Power%20Suits" class="collection-card">
-          <img src="assets/collection-suits.jpg" class="collection-img" alt="Power suits collection">
-          <div class="collection-overlay">
-            <h3>Power Suits</h3>
-            <p>Tailored authority</p>
-          </div>
-        </a>
-
-        <a href="shop.html?collection=Signature%20Dresses" class="collection-card">
-          <img src="assets/collection-dresses.jpg" class="collection-img" alt="Signature dresses collection">
-          <div class="collection-overlay">
-            <h3>Signature Dresses</h3>
-            <p>Elegant silhouettes</p>
-          </div>
-        </a>
-
-        <a href="shop.html?collection=Rich%20Aunty%20Sets" class="collection-card">
-          <img src="assets/collection-rich.jpg" class="collection-img" alt="Rich aunty sets collection">
-          <div class="collection-overlay">
-            <h3>Rich Aunty Sets</h3>
-            <p>Quiet luxury</p>
-          </div>
-        </a>
       </div>
     </section>
 
@@ -1142,7 +1151,6 @@
   </script>
 </body>
 </html>
-
 
 
 
