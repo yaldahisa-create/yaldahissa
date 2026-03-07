@@ -1003,11 +1003,6 @@ img{ max-width:100%; display:block; }
   .hero-title{ font-size:44px; }
 }
 
-@media (max-width:768px){
-  .hero-title{ font-size:44px; }
-}
-
-
 
 
 
