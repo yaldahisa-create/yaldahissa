@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -502,6 +503,68 @@
       opacity:.92;
     }
 
+    /* SIGNATURE */
+    .signature-section{
+      padding:70px 0;
+    }
+
+    .signature-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .signature-image-wrap{
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow-1);
+      background:#efe6d6;
+    }
+
+    .signature-img{
+      width:100%;
+      height:560px;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      background:#efe6d6;
+      padding:10px;
+    }
+
+    .signature-copy{
+      border-radius:18px;
+      background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(239,230,214,.72));
+      box-shadow:var(--shadow-2);
+      border:1px solid rgba(214,178,94,.18);
+      padding:32px;
+    }
+
+    .signature-kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.72;
+      margin-bottom:12px;
+    }
+
+    .signature-title{
+      font-family:var(--font-display);
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--brown-1);
+      margin-bottom:16px;
+    }
+
+    .signature-text{
+      font-size:15px;
+      line-height:1.85;
+      opacity:.82;
+      margin-bottom:22px;
+    }
+
     /* FEATURED */
     .feature-img{
       width:100%;
@@ -717,6 +780,7 @@
     @media (max-width:980px){
       .grid,
       .collections-grid,
+      .signature-grid,
       .editorial-grid,
       .lookbook-grid,
       .about-brand-wrap{
@@ -724,6 +788,7 @@
       }
 
       .collection-img{ height:340px; }
+      .signature-img{ height:380px; }
       .feature-img{ height:320px; }
       .lookbook-img{ height:340px; }
       .about-brand-img{ height:320px; }
@@ -800,6 +865,7 @@
 
     <nav class="topnav" aria-label="Primary navigation">
       <a class="navpill" href="#collections">Collections</a>
+      <a class="navpill" href="#signature">Signature</a>
       <a class="navpill" href="#featured-pieces">Featured</a>
       <a class="navpill" href="#editorial">The Standard</a>
       <a class="navpill" href="#lookbook">Lookbook</a>
@@ -813,6 +879,7 @@
 
     <div class="menu-panel" id="menuPanel" role="dialog" aria-label="Menu" aria-hidden="true">
       <a class="menu-item" href="#collections">Collections</a>
+      <a class="menu-item" href="#signature">Signature</a>
       <a class="menu-item" href="#featured-pieces">Featured</a>
       <a class="menu-item" href="#editorial">The Standard</a>
       <a class="menu-item" href="#lookbook">Lookbook</a>
@@ -840,7 +907,7 @@
 
         <div class="btnrow">
           <a class="btn primary" href="#collections">Explore Collections</a>
-          <a class="btn" href="#featured-pieces">Featured Pieces</a>
+          <a class="btn" href="#signature">Signature Suit</a>
         </div>
       </div>
     </div>
@@ -877,6 +944,32 @@
             <p>Quiet luxury</p>
           </div>
         </a>
+      </div>
+    </section>
+
+    <section class="section signature-section" id="signature">
+      <div class="section-head">
+        <h2>Signature Piece</h2>
+        <div class="note">The house statement</div>
+      </div>
+
+      <div class="signature-grid">
+        <div class="signature-image-wrap">
+          <img src="assets/signature-suit.png" alt="Yaldah Issa signature suit" class="signature-img">
+        </div>
+
+        <div class="signature-copy">
+          <div class="signature-kicker">Yaldah Issa Signature</div>
+          <h3 class="signature-title">The Signature Suit</h3>
+          <p class="signature-text">
+            A sharply tailored statement for women who lead with elegance, authority, and quiet luxury.
+            Designed to define the waist, flatter the curvy silhouette, and bring refined presence into every room.
+          </p>
+
+          <div class="btnrow" style="justify-content:flex-start;">
+            <a class="btn primary" href="shop.html?collection=Power%20Suits">Discover the Suit</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1124,6 +1217,7 @@
   </script>
 </body>
 </html>
+```
 
 
 
